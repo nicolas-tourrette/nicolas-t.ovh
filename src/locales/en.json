@@ -1,0 +1,33 @@
+{
+  "Sidebar": {
+    "Accueil": "Home",
+    "Actualites": "News",
+    "Publications": "Publications",
+    "Mariage": "Marion & Nicolas' Wedding",
+    "CV": "Resume"
+  },
+  "Footer": {
+    "APropos": {
+      "Titre": "About",
+      "Liens": {
+        "Accueil": "Home",
+        "Actualites": "My news",
+        "Publications": "My publications",
+        "CV": "My Resume"
+      }
+    },
+    "Liens": {
+      "Titre": "Useful links",
+      "Liens": {
+        "Statuts": "Service status",
+        "Informations": "Information"
+      }
+    },
+    "LastUpdate": "Last updated on",
+    "FooterText": "This website has been developed with the VueJS technology ans the CCS framework Semantic UI. The whole contents is property of its author. For any specific wish, feel free to contact me on the appropriate page."
+  },
+  "Home": {
+    "Home_Welcome1": "Welcome on my brand new Website ! It has been updated on {date}. Developed with the {vue-link} framework, it is more lisible and simple. Le design est réalisé avec la librairie {semantic-link}.",
+    "Home_Welcome2": "The website is not yet totally bilingual, but I am still working hard on it! It tooks so much time to translate all its contents. A small {actualite} will be published when it will be completely translated to english 😉. For the moment, only some components are available, and also my {cv}."
+  }
+}

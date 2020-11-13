@@ -1,28 +1,112 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="app">
+		<MenuMobile @change-locale="changeLocale"></MenuMobile>
+		<Sidebar @change-locale="changeLocale" ref="sidebar"></Sidebar>
+		<div class="content">
+			<div class="page">
+				<transition name="component-fade" mode="out-in">
+					<router-view :locale="this.locale"></router-view>
+				</transition>
+			</div>
+			<div class="footer">
+				<Footer></Footer>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Sidebar from "./components/Sidebar.vue"
+import Footer from "./components/Footer";
+import MenuMobile from "./components/MenuMobile";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	name: 'App',
+	components: {
+		MenuMobile,
+		Sidebar,
+		Footer
+	},
+	data: function () {
+		return {
+			title: "Nicolas TOURRETTE",
+			locale: navigator.language.substring(0, 2),
+			version: "2.0.0-rc0",
+			lastUpdated: new Date("2020-11-13")
+		}
+	},
+	mounted: function () {
+		//document.title = this.title
+	},
+	methods: {
+		changeLocale(payload) {
+			let locale = payload.locale
+			this.locale = locale
+			this.$parent.$i18n.locale = locale
+			this.$refs.sidebar.updateLocale(locale)
+		}
+	},
+	//watch: {}
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+	font-family: Lato, Helvetica, "Segoe UI", Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #2c3e50;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+}
+
+.content {
+	margin-left: 15rem;
+}
+
+.page {
+	overflow-y: auto;
+	height: calc(100vh - 170px);
+}
+
+.footer {
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 100vw;
+	height: 170px;
+}
+
+@media (max-width: 768px) {
+	.content {
+		margin-left: 0;
+		margin-top: 54px;
+	}
+	
+	.page {
+		height: calc(100vh - 100px - 54px);
+	}
+	
+	.footer {
+		height: 100px;
+	}
+	
+	.footer .ui.container {
+		margin-top: 0 !important;
+	}
+	
+	.footer .ui.stackable.divided:not(.vertically).grid > .column:not(.row):first-child {
+		padding-top: 1rem !important;
+	}
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+	transition: opacity .3s ease;
+}
+
+.component-fade-enter, .component-fade-leave-to {
+	opacity: 0;
 }
 </style>

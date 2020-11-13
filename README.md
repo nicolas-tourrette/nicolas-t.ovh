@@ -1,4 +1,8 @@
-# home2
+# www.nicolas-t.ovh
+
+This project is my website, coded with VueJS and PHP. The following commands are useful to run, build and test the website with `npm`.
+
+The precedent repo containing the old version of my site was entitled `homepage` but was private.
 
 ## Project setup
 ```
