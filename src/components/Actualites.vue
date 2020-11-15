@@ -38,13 +38,9 @@
 						</span>
 					</div>
 					<div class="description">
-						<p class="justified" v-for="content in actu.content" :key="content.index"
+						<p class="text-justify" v-for="content in actu.content" :key="content.index"
 							v-html="content"></p>
 					</div>
-					<!--<div class="extra">
-						<div class="ui label">IMAX</div>
-						<div class="ui label"><i class="globe icon"></i> Langues supplémentaires</div>
-					</div>-->
 				</div>
 			</div>
 			<div class="ui placeholder segment hidden">
@@ -148,10 +144,6 @@ span.ui.yellow i.icon {
 i.ui.icon.calendar {
 	margin-left: 15px;
 	margin-right: 3px !important;
-}
-
-.justified {
-	text-align: justify;
 }
 
 .ui.placeholder:not(.hidden) {

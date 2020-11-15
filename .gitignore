@@ -23,3 +23,5 @@ pnpm-debug.log*
 # Public & dist assets
 dist
 public/assets
+public/lib/config/dev.env.json
+public/lib/config/prod.env.json

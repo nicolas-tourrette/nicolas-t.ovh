@@ -5,6 +5,7 @@ import App from './App'
 import HelloWorld from "./components/Home"
 import Actualites from "./components/Actualites"
 import Publications from "./components/Publications"
+import Mariage from "./components/Mariage"
 
 import '../public/css/style.css'
 
@@ -44,6 +45,7 @@ const router = new VueRouter({
 		{
 			path: '/mariage',
 			name: "mariage",
+			component: Mariage,
 		},
 		{
 			path: '/cv',

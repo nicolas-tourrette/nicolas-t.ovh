@@ -49,7 +49,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<p class="justified" v-html="publi.abstract"></p>
+							<p class="text-justify" v-html="publi.abstract"></p>
 						</div>
 						<div class="extra">
 							<router-link class="ui primary button" :to="{ name: 'publication-detail', params:{ pid: publi.link.substring(8) } }">
@@ -172,10 +172,6 @@ i.ui.icon.calendar {
 
 img.ui.rounded.image {
 	border-radius: .5em !important;
-}
-
-.justified {
-	text-align: justify;
 }
 
 .ui.placeholder:not(.hidden) {
