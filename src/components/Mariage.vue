@@ -49,62 +49,65 @@
 			</div>
 		</div>
 		<div class="hidden">
-		<h2>Vous êtes invités ?</h2>
-		<h4><i>Dites-nous si vous serez présents !</i></h4>
-		<p>
-			Afin de nous aider dans l'organisation de ce grand événement, dites-nous si vous serez présent !<br>
-			<i>Les futurs mariés</i>
-		</p>
-		<form class="ui form">
-			<h4 class="ui dividing header">Informations générales</h4>
-			<div class="fields">
-				<div class="six wide field required">
-					<label for="nom">Votre nom</label>
-					<input type="text" name="nom" id="nom" placeholder="Jean DUPONT" required>
-				</div>
-				<div class="five wide field required">
-					<label for="telephone">Votre numéro de téléphone</label>
-					<input type="tel" name="telephone" id="telephone" placeholder="01.23.45.67.89." required>
-				</div>
-				<div class="five wide field required">
-					<label for="email">Votre e-mail</label>
-					<input type="email" name="email" id="email" placeholder="jean.dupont@fai.fr" required>
-				</div>
-			</div>
-			<h4 class="ui dividing header">Votre présence à notre mariage</h4>
-			<div class="fields">
-				<div class="four wide field required">
-					<label for="nombre">Nombre de personnes présentes</label>
-					<input type="number" name="nombre" id="nombre" value="2" required>
-				</div>
-				<div class="inline fields">
-					<label for="presence">Vous serez présent à :</label>
-					<div class="field">
-						<div class="ui checkbox checked">
-							<input type="checkbox" name="presence[]" value="mairie">
-							<label>Cérémonie laïque à la mairie</label>
-						</div>
+			<h2>Vous êtes invités ?</h2>
+			<h4><i>Dites-nous si vous serez présents !</i></h4>
+			<p>
+				Afin de nous aider dans l'organisation de ce grand événement, dites-nous si vous serez présent !<br>
+				<i>Les futurs mariés</i>
+			</p>
+			<div class="ui green icon message" id="mariage-validate-success"></div>
+			<div class="ui red icon message" id="mariage-validate-error"></div>
+			<form class="ui form">
+				<h4 class="ui dividing header">Informations générales</h4>
+				<div class="fields">
+					<div class="six wide field required">
+						<label for="nom">Votre nom</label>
+						<input type="text" name="nom" id="nom" placeholder="Jean DUPONT" required>
 					</div>
-					<div class="field">
-						<div class="ui checkbox">
-							<input type="checkbox" name="presence[]" value="eglise">
-							<label>Messe de mariage</label>
-						</div>
+					<div class="five wide field required">
+						<label for="telephone">Votre numéro de téléphone</label>
+						<input type="tel" name="telephone" id="telephone" placeholder="01.23.45.67.89." required>
 					</div>
-					<div class="field">
-						<div class="ui checkbox">
-							<input type="checkbox" name="presence[]" value="repas">
-							<label>Repas de noces</label>
-						</div>
+					<div class="five wide field required">
+						<label for="email">Votre e-mail</label>
+						<input type="email" name="email" id="email" placeholder="jean.dupont@fai.fr" required>
 					</div>
 				</div>
-			</div>
-			<button class="ui button" tabindex="0" type="submit">Finaliser</button>
-			<button class="ui button" tabindex="0" type="reset">Annuler</button>
-			<div class="ui error message"></div>
-			<p>Nous collectons vos données personnelles afin de pouvoir organiser au mieux notre mariage. Ces données seront exclusivement réservées à
-				notre usage propre et ne seront communiquées à aucun tiers.</p>
-		</form>
+				<h4 class="ui dividing header">Votre présence à notre mariage</h4>
+				<div class="fields">
+					<div class="four wide field required">
+						<label for="nombre">Nombre de personnes présentes</label>
+						<input type="number" name="nombre" id="nombre" value="2" required>
+					</div>
+					<div class="inline fields">
+						<label for="presence">Vous serez présent à :</label>
+						<div class="field">
+							<div class="ui checkbox checked">
+								<input type="checkbox" name="presence[]" value="mairie">
+								<label>Cérémonie laïque à la mairie</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui checkbox">
+								<input type="checkbox" name="presence[]" value="eglise">
+								<label>Messe de mariage</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui checkbox">
+								<input type="checkbox" name="presence[]" value="repas">
+								<label>Repas de noces</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button class="ui button" tabindex="0" type="submit">Finaliser</button>
+				<button class="ui button" tabindex="0" type="reset">Annuler</button>
+				<div class="ui error message"></div>
+				<p>Nous collectons vos données personnelles afin de pouvoir organiser au mieux notre mariage. Ces données seront exclusivement
+					réservées à
+					notre usage propre et ne seront communiquées à aucun tiers.</p>
+			</form>
 		</div>
 		<h2>Autres renseignements</h2>
 		<p class="text-justify">Nous serons très heureux de vous avoir à nos côtés pour ce grand événement ! Cette page sera mise à jour dès que nous
@@ -133,7 +136,9 @@ export default {
 		$('.ui.checkbox').checkbox()
 		$('.ui.form').on("submit", (event) => {
 			event.preventDefault()
-			this.formSend()
+			if ($('.ui.form').form('is valid')) {
+				this.formSend()
+			}
 		})
 		this.formChecker()
 	},
@@ -145,7 +150,7 @@ export default {
 				document.title = `Marion & Nicolas' Wedding | ${this.$parent.$data.title}`
 			}
 		},
-		formChecker: function() {
+		formChecker: function () {
 			$('.ui.form')
 				.form({
 					fields: {
@@ -153,12 +158,12 @@ export default {
 							identifier: 'nom',
 							rules: [
 								{
-									type   : 'empty',
-									prompt : 'Merci d\'entrer votre nom.'
+									type: 'empty',
+									prompt: 'Merci d\'entrer votre nom.'
 								},
 								{
-									type   : 'minLength[5]',
-									prompt : 'Merci d\'entrer un nom d\'au moins 5 caractères.'
+									type: 'minLength[5]',
+									prompt: 'Merci d\'entrer un nom d\'au moins 5 caractères.'
 								}
 							]
 						},
@@ -166,9 +171,9 @@ export default {
 							identifier: 'telephone',
 							rules: [
 								{
-									type   : 'regExp',
-									value  : /([0-9][0-9]\.){5}$/gmi,
-									prompt : 'Le numéro de téléphone est incorrect.'
+									type: 'regExp',
+									value: /([0-9][0-9]\.){5}$/gmi,
+									prompt: 'Le numéro de téléphone est incorrect.'
 								}
 							]
 						},
@@ -176,9 +181,9 @@ export default {
 							identifier: 'email',
 							rules: [
 								{
-									type   : 'regExp',
-									value  : /^((?!\.)[\w-_.]*[^.])(@[\w-]+)(\.\w+(\.\w+)?[^.\W])$/gmi,
-									prompt : 'L\'adresse email est incorrecte.'
+									type: 'regExp',
+									value: /^((?!\.)[\w-_.]*[^.])(@[\w-]+)(\.\w+(\.\w+)?[^.\W])$/gmi,
+									prompt: 'L\'adresse email est incorrecte.'
 								}
 							]
 						},
@@ -186,8 +191,8 @@ export default {
 							identifier: 'nombre',
 							rules: [
 								{
-									type   : 'integer[1..100]',
-									prompt : 'Veuillez saisir un nombre de personnes au moins égal à 1.'
+									type: 'integer[1..100]',
+									prompt: 'Veuillez saisir un nombre de personnes au moins égal à 1.'
 								}
 							]
 						},
@@ -206,10 +211,41 @@ export default {
 				type: "POST",
 				data: "data=" + JSON.stringify(values),
 				success: () => {
-				
+					$("#mariage-validate-error i.close.icon").click()
+					$("#mariage-validate-success").html(`
+						<i class="close icon"></i>
+						<i class="check circle outline icon"></i>
+						<div class="content" style="margin-left: 0;">
+							<div class="header">Félicitations, c'est fait !</div>
+							<p>Votre réponse nous est bien parvenue. Vous recevrez un e-mail à l'adresse ${values.email} pour vous donner un peu plus
+							d'informations.</p>
+							<p>Merci pour votre réponse. Si vous avez des questions, n'hésitez pas à nous joindre !</p>
+						</div>
+					`).removeClass("hidden").css("display", "flex")
+					$('.message .close')
+						.on('click', function () {
+							$(this)
+								.closest('.message')
+								.transition('fade')
+						})
 				},
-				error: () => {
-				
+				error: (xhr, text, error) => {
+					$("#mariage-validate-error").html(`
+						<i class="close icon"></i>
+						<i class="times circle outline icon"></i>
+						<div class="content" style="margin-left: 0;">
+						    <div class="header">Une erreur s'est produite !</div>
+							<p>Une erreur s'est produite lors de l'enregistrement des informations... Nous en sommes désolés. Envoyez-nous directement un email avec l'erreur renvoyée.</p>
+							<h4 class="ui horizontal divider header"><i class="icofont-info-circle"></i> Informations </h4>
+							<p>Error: ${xhr.status} - ${error}</p></p>
+						</div>
+					`).removeClass("hidden").css("display", "flex")
+					$('.message .close')
+						.on('click', function () {
+							$(this)
+								.closest('.message')
+								.transition('fade')
+						})
 				}
 			});
 		}
@@ -248,6 +284,16 @@ img.mariage {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	width: 50%;
+}
+
+#mariage-validate-success,
+#mariage-validate-error {
+	display: none;
+}
+
+#mariage-validate-success .content,
+#mariage-validate-error .content {
+	margin-left: 0 !important;
 }
 
 @media (max-width: 768px) {
