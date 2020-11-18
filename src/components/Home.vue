@@ -15,7 +15,7 @@
 			</div>
 			<div class="four wide column right aligned">
 				<router-link class="ui huge red button" :to="{name: 'cv'}">
-					{{ locale === 'fr' ? "Voir mon CV" : "Go to my Resume" }} <i class="right id card outline outline icon"></i>
+					{{ locale === 'fr' ? "Voir mon CV" : "Go to my Resume" }} <i class="icon right icofont-businessman"></i>
 				</router-link>
 			</div>
 		</div>

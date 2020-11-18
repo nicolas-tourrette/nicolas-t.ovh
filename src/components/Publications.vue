@@ -53,7 +53,7 @@
 						</div>
 						<div class="extra">
 							<router-link class="ui primary button" :to="{ name: 'publication-detail', params:{ pid: publi.link.substring(8) } }">
-								<i class="icon file alternate"></i> Lire la publication
+								<i class="icofont-file-pdf"></i> Lire la publication
 							</router-link>
 						</div>
 					</div>

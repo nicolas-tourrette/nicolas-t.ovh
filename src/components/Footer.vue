@@ -17,7 +17,7 @@
 							<i class="newspaper outline icon"></i> {{ $t("Footer.APropos.Liens.Publications") }}
 						</router-link>
 						<router-link :to="{name: 'cv'}" class="item">
-							<i class="id card outline icon"></i> {{ $t("Footer.APropos.Liens.CV") }}
+							<i class="icofont-businessman"></i> {{ $t("Footer.APropos.Liens.CV") }}
 						</router-link>
 					</div>
 				</div>
@@ -27,7 +27,7 @@
 					</h4>
 					<div class="ui inverted link list">
 						<a href="https://cloud.nicolas-t.ovh" target="_blank" class="item">
-							<i class="id cloud icon"></i> NCloud
+							<i class="icon icofont-cloud"></i> NCloud
 						</a>
 						<a href="https://status.nicolas-t.ovh" target="_blank" class="item">
 							<i class="id server icon"></i> {{ $t("Footer.Liens.Liens.Statuts") }}
@@ -36,7 +36,7 @@
 							<i class="id github icon"></i> Github
 						</a>
 						<a href="#" class="item">
-							<i class="id info icon"></i> {{ $t("Footer.Liens.Liens.Informations") }}
+							<i class="icon icofont-info-circle"></i> {{ $t("Footer.Liens.Liens.Informations") }}
 						</a>
 					</div>
 				</div>

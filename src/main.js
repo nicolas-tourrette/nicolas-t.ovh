@@ -2,10 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
 import App from './App'
-import HelloWorld from "./components/Home"
+import Home from "./components/Home"
 import Actualites from "./components/Actualites"
 import Publications from "./components/Publications"
 import Mariage from "./components/Mariage"
+import CV from "./components/CV"
+import CVHome from "./components/cv/Home"
 
 import '../public/css/style.css'
 
@@ -23,7 +25,7 @@ const router = new VueRouter({
 		{
 			path: '/home',
 			name: "home",
-			component: HelloWorld
+			component: Home
 		},
 		{
 			path: '/actualites',
@@ -49,7 +51,15 @@ const router = new VueRouter({
 		},
 		{
 			path: '/cv',
-			name: "cv",
+			component: CV,
+			children: [
+				{
+					path: '',
+					name: 'cv',
+					component: CVHome
+				}
+			]
+			
 		},
 		{
 			path: '*',
