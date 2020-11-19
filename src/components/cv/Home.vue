@@ -71,28 +71,28 @@ export default {
 	data: function () {
 		return {
 			infos: {
-				"description": "",
-				"info": "",
-				"homeInfo": "",
-				"professional": {
-					"status": "",
-					"icon": "",
-					"short": "",
-					"description": ""
+				description: "",
+				info: "",
+				homeInfo: "",
+				professional: {
+					status: "",
+					icon: "",
+					short: "",
+					description: ""
 				},
-				"personal": {
-					"status": "",
-					"birthday": "1998-08-12",
-					"licence": ""
+				personal: {
+					status: "",
+					birthday: "1998-08-12",
+					licence: ""
 				},
-				"contact": {
-					"mail": "",
-					"phone": "",
-					"address": "",
-					"linkedin": "https://www.linkedin.com/in/nicolas-tourrette"
+				contact: {
+					mail: "",
+					phone: "",
+					address: "",
+					linkedin: "https://www.linkedin.com/in/nicolas-tourrette"
 				},
-				"biography": [],
-				"strengths": []
+				biography: [],
+				strengths: []
 			}
 		}
 	},

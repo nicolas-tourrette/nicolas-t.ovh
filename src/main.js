@@ -8,6 +8,8 @@ import Publications from "./components/Publications"
 import Mariage from "./components/Mariage"
 import CV from "./components/CV"
 import CVHome from "./components/cv/Home"
+import CVEducation from "./components/cv/Education"
+import CVExperience from "./components/cv/Experience"
 
 import '../public/css/style.css'
 
@@ -18,7 +20,7 @@ Vue.use(VueI18n)
 
 const router = new VueRouter({
 	mode: 'hash',
-	base: __dirname,
+	//base: __dirname,
 	linkExactActiveClass: "active",
 	linkActiveClass: "active",
 	routes: [
@@ -52,10 +54,32 @@ const router = new VueRouter({
 		{
 			path: '/cv',
 			component: CV,
+			name: 'cv',
+			redirect: {name: "cv-intro"},
 			children: [
 				{
-					path: '',
-					name: 'cv',
+					path: 'intro',
+					name: 'cv-intro',
+					component: CVHome
+				},
+				{
+					path: 'education',
+					name: 'cv-education',
+					component: CVEducation
+				},
+				{
+					path: 'experience',
+					name: 'cv-experience',
+					component: CVExperience
+				},
+				{
+					path: 'skills',
+					name: 'cv-skills',
+					component: CVHome
+				},
+				{
+					path: 'interests',
+					name: 'cv-interests',
 					component: CVHome
 				}
 			]

@@ -8,7 +8,7 @@
 			</div>
 		</h1>
 		<div class="ui top attached tabular menu">
-			<router-link :to="{ 'name': 'cv'}" class="item active">Accueil</router-link>
+			<router-link :to="{ 'name': 'cv-intro'}" class="item">Accueil</router-link>
 			<router-link :to="{ 'name': 'cv-education'}" class="item">Formation</router-link>
 			<router-link :to="{ 'name': 'cv-experience'}" class="item">Expériences</router-link>
 			<router-link :to="{ 'name': 'cv-skills'}" class="item">Compétences</router-link>
@@ -24,7 +24,9 @@
 			</div>
 		</div>
 		<div class="ui bottom attached segment">
-			<router-view :locale="this.locale"></router-view>
+			<transition name="component-fade" mode="out-in">
+				<router-view :locale="this.locale"></router-view>
+			</transition>
 		</div>
 	</div>
 </template>
@@ -63,5 +65,13 @@ export default {
 .ui.menu.right {
 	border: none;
 	box-shadow: none;
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+	transition: opacity .3s ease;
+}
+
+.component-fade-enter, .component-fade-leave-to {
+	opacity: 0;
 }
 </style>
