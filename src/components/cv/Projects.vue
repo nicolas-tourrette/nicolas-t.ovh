@@ -1,45 +1,50 @@
 <template>
-	<div class="container">
-		<h1 class="ui header blue">
-			<i class="icon newspaper outline"></i>
-			<div class="content">
-				Mes actualités
-				<div class="sub header">Ici, je partage toutes mes actualités.</div>
-			</div>
-		</h1>
+	<div>
 		<div class="ui basic segment center aligned">
 			<button class="ui small button" @click="displayAll()">
 				{{ this.locale === 'fr' ? "Tout afficher" : "Display all" }}
 			</button>
-			<button class="ui small button red" @click="displaySome('pro')">
-				{{ this.locale === 'fr' ? "Professionnel" : "Professional" }}
+			<button class="ui small button red" @click="displaySome('internship')">
+				{{ this.locale === 'fr' ? "Stage" : "Internship" }}
 			</button>
 			<button class="ui small button purple" @click="displaySome('perso')">
 				{{ this.locale === 'fr' ? "Personnel" : "Personal" }}
 			</button>
+			<button class="ui small button blue" @click="displaySome('esirem')">
+				ESIREM
+			</button>
 		</div>
-		<div class="ui divided items" v-if="news.length !== 0">
-			<div class="item" :class="actu.category" v-for="actu in news" :key="actu.index">
+		<div class="ui divided items" v-if="projects.length !== 0">
+			<div class="item" :class="project.category" v-for="project in projects" :key="project.index">
+				<div class="image">
+					<img class="ui rounded image" :src="require('../../assets/img/projects/' + (project.thumbnail !== undefined ? project.thumbnail
+					!== '' ? project.thumbnail :'article.jpg' : 'article.jpg'))">
+				</div>
 				<div class="content">
-					<span class="ui label yellow inverted" v-if="actu.important">
-						<i class="icon exclamation triangle"></i>
-					</span>
-					<a class="header">{{ actu.title }}</a>
+					<a class="header">{{ project.title }}</a>
 					<div class="meta">
-						<div class="ui label" :class="actu.category === 'perso' ? 'purple' : 'red'">
-							{{
-								actu.category === "perso" ? (locale === 'fr' ? "Personnel" : "Personal") :
-									(locale === 'fr' ? "Professionnel" : "Professional")
-							}}
-						</div>
+						<div class="ui label red" v-if="project.category === 'intership'">{{ locale === 'fr' ? "Stage" : "Internship"}}</div>
+						<div class="ui label purple" v-if="project.category === 'perso'">{{ locale === 'fr' ? "Personnel" : "Personal"}}</div>
+						<div class="ui label blue" v-if="project.category === 'esirem'">ESIREM</div>
 						<span>
 							<i class="ui icon calendar"></i>
-							{{ locale === 'fr' ? "Publié par Nicolas TOURRETTE le" : "Published by Nicolas TOURRETTE on" }} {{ actu.date }}
+							{{ locale === 'fr' ? "Publié par Nicolas TOURRETTE le" : "Published by Nicolas TOURRETTE on" }} {{ project.date }}
 						</span>
+						<div class="extra">
+							<i class="icon tags"></i>
+							<div class="ui label" v-for="keyword in project.keywords" :key="keyword.key">{{
+									keyword
+								}}
+							</div>
+						</div>
 					</div>
 					<div class="description">
-						<p class="text-justify" v-for="content in actu.content" :key="content.index"
-							v-html="content"></p>
+						<p class="text-justify" v-html="project.abstract"></p>
+					</div>
+					<div class="extra">
+						<a class="ui primary button" :href="project.link">
+							<i class="icofont-link"></i> Voir le détail du projet
+						</a>
 					</div>
 				</div>
 			</div>
@@ -63,15 +68,15 @@
 
 <script>
 export default {
-	name: "Actualites",
+	name: "CVProjects.vue",
 	props: ['locale'],
 	data: function () {
 		return {
-			news: []
+			projects: [],
 		}
 	},
 	created() {
-		this.getNews()
+		this.getProjects()
 	},
 	mounted: function () {
 		this.displayTitle()
@@ -79,22 +84,22 @@ export default {
 	methods: {
 		displayTitle: function () {
 			if (this.locale === "fr") {
-				document.title = `Accueil | ${this.$parent.$data.title}`
+				document.title = `Compétences | ${this.$parent.$data.title}`
 			} else {
-				document.title = `Home | ${this.$parent.$data.title}`
+				document.title = `Skills | ${this.$parent.$data.title}`
 			}
 		},
-		getNews: function () {
+		getProjects: function () {
 			$.ajax({
-				url: `./assets/${this.locale}/news.json`,
+				url: `./assets/${this.locale}/cv/projects.json`,
 				type: 'GET',
 				dataType: "json",
 				success: (response) => {
-					this.news = response
+					this.projects = response
 				},
 				error: (response, status, error) => {
-					this.news = []
-					throw new Error("Error when fetching the news: ", error)
+					this.projects = []
+					throw new Error("Error when fetching the projects: ", error)
 				}
 			})
 		},
@@ -111,7 +116,7 @@ export default {
 				document.querySelectorAll(`div.ui.divided.items .item.${toDisplay}`)[0].classList.add("first")
 			} catch (e) {
 				document.querySelector(".ui.placeholder.segment.hidden").classList.remove("hidden")
-				console.warn(`No news to display in category ${toDisplay}`)
+				console.warn(`No project to display in category ${toDisplay}`)
 			}
 			document.querySelectorAll(`div.ui.divided.items .item:not(.${toDisplay})`).forEach((item) => {
 				item.classList.remove("visible")
@@ -121,7 +126,7 @@ export default {
 	},
 	watch: {
 		locale: function () {
-			this.getNews()
+			this.getProjects()
 			this.displayTitle()
 		}
 	}
@@ -133,17 +138,13 @@ a.header {
 	cursor: text !important;;
 }
 
-span.ui.yellow {
-	margin-right: 10px;
-}
-
-span.ui.yellow i.icon {
-	margin: 0 !important;
-}
-
 i.ui.icon.calendar {
 	margin-left: 15px;
 	margin-right: 3px !important;
+}
+
+img.ui.rounded.image {
+	border-radius: .5em !important;
 }
 
 .ui.placeholder:not(.hidden) {
@@ -172,6 +173,7 @@ i.ui.icon.calendar {
 	opacity: 0;
 	transition: visibility 0s .3s, opacity .3s linear !important;
 	height: 0 !important;
+	min-height: 0 !important;
 	padding: 0 !important;
 }
 

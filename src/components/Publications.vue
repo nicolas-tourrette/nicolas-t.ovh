@@ -33,7 +33,7 @@
 					<div class="content">
 						<a class="header">{{ publi.title }}</a>
 						<div class="meta">
-							<div class="ui label" :class="publi.category === 'perso' ? 'ui purple' : 'ui red'">
+							<div class="ui label" :class="publi.category === 'perso' ? 'purple' : 'red'">
 								{{
 									publi.category === "perso" ? (locale === 'fr' ? "Personnel" : "Personal") :
 										(locale === 'fr' ? "Professionnel" : "Professional")
@@ -124,7 +124,7 @@ export default {
 				document.querySelectorAll(`div.ui.divided.items .item.${toDisplay}`)[0].classList.add("first")
 			} catch (e) {
 				document.querySelector(".ui.placeholder.segment.hidden").classList.remove("hidden")
-				console.warn(`No news to display in category ${toDisplay}`)
+				console.warn(`No publication to display in category ${toDisplay}`)
 			}
 			document.querySelectorAll(`div.ui.divided.items .item:not(.${toDisplay})`).forEach((item) => {
 				item.classList.remove("visible")
@@ -213,11 +213,11 @@ img.ui.rounded.image {
 	padding-top: 0 !important;
 }
 
-button {
+.button {
 	transition: transform .3s !important;
 }
 
-button:hover {
+.button:hover {
 	transform: scale(.95);
 }
 
