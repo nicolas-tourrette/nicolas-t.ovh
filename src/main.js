@@ -10,6 +10,8 @@ import CV from "./components/CV"
 import CVHome from "./components/cv/Home"
 import CVEducation from "./components/cv/Education"
 import CVExperience from "./components/cv/Experience"
+import CVSkills from './components/cv/Skills'
+import CVInterests from './components/cv/Interests'
 
 import '../public/css/style.css'
 
@@ -75,12 +77,12 @@ const router = new VueRouter({
 				{
 					path: 'skills',
 					name: 'cv-skills',
-					component: CVHome
+					component: CVSkills
 				},
 				{
 					path: 'interests',
 					name: 'cv-interests',
-					component: CVHome
+					component: CVInterests
 				}
 			]
 			

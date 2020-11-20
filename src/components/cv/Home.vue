@@ -96,9 +96,11 @@ export default {
 			}
 		}
 	},
+	created: function () {
+		this.fetchMyInfos()
+	},
 	mounted: function () {
 		this.displayTitle()
-		this.fetchMyInfos()
 	},
 	methods: {
 		displayTitle: function () {
