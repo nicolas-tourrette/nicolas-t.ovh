@@ -13,6 +13,7 @@ import CVExperience from "./components/cv/Experience"
 import CVSkills from './components/cv/Skills'
 import CVInterests from './components/cv/Interests'
 import CVProjects from './components/cv/Projects'
+import Informations from './components/Informations'
 
 import '../public/css/style.css'
 
@@ -92,6 +93,11 @@ const router = new VueRouter({
 				}
 			]
 			
+		},
+		{
+			path: '/informations',
+			name: "infos",
+			component: Informations,
 		},
 		{
 			path: '*',

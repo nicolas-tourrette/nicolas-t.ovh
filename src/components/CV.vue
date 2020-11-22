@@ -18,10 +18,10 @@
 				<div class="ui simple dropdown item">
 					Téléchargements <i class="dropdown icon"></i>
 					<div class="menu">
-						<a class="item" :href="'../assets/' + this.locale + '/cv/CV_Nicolas_TOURRETTE.pdf'" target="_blank">CV en PDF</a>
-						<a class="item" :href="'../assets/' + this.locale + '/cv/CV_Nicolas_TOURRETTE_print.pdf'" target="_blank">CV à imprimer</a>
-						<a class="item" :href="'../assets/fr/cv/Fiche_filiere.pdf'" target="_blank">Fiche filière en PDF</a>
-						<a class="item" :href="'../assets/fr/cv/Fiche_filiere_NB.pdf'" target="_blank">Fiche filière à imprimer</a>
+						<a class="item" :href="'./assets/' + this.locale + '/cv/CV_Nicolas_TOURRETTE.pdf'" target="_blank">CV en PDF</a>
+						<a class="item" :href="'./assets/' + this.locale + '/cv/CV_Nicolas_TOURRETTE_print.pdf'" target="_blank">CV à imprimer</a>
+						<a class="item" :href="'./assets/fr/cv/Fiche_filiere.pdf'" target="_blank">Fiche filière en PDF</a>
+						<a class="item" :href="'./assets/fr/cv/Fiche_filiere_NB.pdf'" target="_blank">Fiche filière à imprimer</a>
 					</div>
 				</div>
 			</div>

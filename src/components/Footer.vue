@@ -35,17 +35,16 @@
 						<a href="https://www.github.com/nicolas-tourrette" target="_blank" class="item">
 							<i class="id github icon"></i> Github
 						</a>
-						<a href="#" class="item">
+						<router-link :to="{ name: 'infos' }" class="item">
 							<i class="icon icofont-info-circle"></i> {{ $t("Footer.Liens.Liens.Informations") }}
-						</a>
+						</router-link>
 					</div>
 				</div>
 				<div class="seven wide column">
 					<h4 class="ui inverted header">&copy; Nicolas TOURRETTE 2020.</h4>
 					<p>
-						{{ $t('Footer.LastUpdate') }} : {{ this.$parent.$data.lastUpdated |
-						date(this.$parent.$data.locale) }}.<br>
-						Version : {{ this.$parent.$data.version }}
+						{{ $t('Footer.LastUpdate') }} : {{ this.$parent.$data.lastUpdated | date(this.$parent.$data.locale) }}.<br>
+						Version : {{ this.$parent.$data.lastVersion }}
 					</p>
 					<p>
 						{{ $t("Footer.FooterText") }}

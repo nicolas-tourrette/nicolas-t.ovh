@@ -27,7 +27,7 @@
 		"FooterText": "Ce site est créé avec la technologie VueJS et Semantic UI. Son contenu est la propriété de son auteur. Pour toutes demandes, merci de mon contacter en utilisant la page prévue à cet effet."
 	},
 	"Home": {
-		"Home_Welcome1": "Bienvenue sur mon nouveau site internet ! Il a été mis à jour pour la dernière fois le {date}. Codé avec la librairie {vue-link}, il est plus lisible et plus simple. Le design est réalisé avec la librairie {semantic-link}.",
+		"Home_Welcome1": "Bienvenue sur mon nouveau site internet ! Il a été mis à jour pour la dernière fois le {date}. Codé avec la librairie {vue-link}, il est plus lisible et plus simple. Le design est réalisé avec la bibliothèque CSS {semantic-link}.",
 		"Home_Welcome2": "Le site n'est pas encore bilingue, mais j'y travaille beaucoup. Cela demande du temps de traduire son contenu. Une petite {actualite} sera publiée quand il sera complètement disponible en anglais 😉. Pour le moment, seuls quelques composants sont traduits, ainsi que mon {cv}."
 	}
 }

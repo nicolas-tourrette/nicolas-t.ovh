@@ -14,6 +14,7 @@
 				<router-link :to="{ name: 'publications'}" class="item">{{ $t("Sidebar.Publications") }}</router-link>
 				<router-link :to="{ name: 'mariage'}" class="item">{{ $t("Sidebar.Mariage") }}</router-link>
 				<router-link :to="{ name: 'cv'}" class="item">{{ $t("Sidebar.CV") }}</router-link>
+				<a class="item" href="mailto:contact@nicolas-t.ovh">Contact</a>
 			</div>
 			<div class="ui grid menu-bottom item">
 				<div class="eight wide column">

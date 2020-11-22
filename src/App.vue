@@ -5,7 +5,7 @@
 		<div class="content">
 			<div class="page">
 				<transition name="component-fade" mode="out-in">
-					<router-view :locale="this.locale"></router-view>
+					<router-view :locale="this.locale" @software-info="getSoftInfo"></router-view>
 				</transition>
 			</div>
 			<div class="footer">
@@ -31,9 +31,14 @@ export default {
 		return {
 			title: "Nicolas TOURRETTE",
 			locale: navigator.language.substring(0, 2),
-			version: "2.0.0-rc0",
-			lastUpdated: new Date("2020-11-13")
+			versions: [],
+			lastVersion: "",
+			lastUpdated: "",
+			lastContentUpdate: "",
 		}
+	},
+	created: function () {
+		this.getSoftInfo()
 	},
 	mounted: function () {
 		//document.title = this.title
@@ -44,6 +49,25 @@ export default {
 			this.locale = locale
 			this.$parent.$i18n.locale = locale
 			this.$refs.sidebar.updateLocale(locale)
+		},
+		getSoftInfo: function () {
+			console.log("getting soft info")
+			$.ajax({
+				url: `./assets/software.json`,
+				type: 'GET',
+				dataType: "json",
+				success: (response) => {
+					this.lastVersion = response.versions[0].number
+					this.lastUpdated = response.versions[0].date
+					this.versions = response.versions
+					this.lastContentUpdate = response.lastContentUpdate
+					console.log(this.versions)
+				},
+				error: (response, status, error) => {
+					this.news = []
+					throw new Error("Error when fetching the software info: ", error)
+				}
+			})
 		}
 	},
 	//watch: {}

@@ -101,12 +101,11 @@
 						</div>
 					</div>
 				</div>
-				<button class="ui button" tabindex="0" type="submit">Finaliser</button>
+				<button class="ui green button" tabindex="0" type="submit">Finaliser</button>
 				<button class="ui button" tabindex="0" type="reset">Annuler</button>
 				<div class="ui error message"></div>
 				<p>Nous collectons vos données personnelles afin de pouvoir organiser au mieux notre mariage. Ces données seront exclusivement
-					réservées à
-					notre usage propre et ne seront communiquées à aucun tiers.</p>
+					réservées à notre usage propre et ne seront communiquées à aucun tiers.</p>
 			</form>
 		</div>
 		<h2>Autres renseignements</h2>
@@ -122,7 +121,6 @@ export default {
 	name: "Mariage.vue",
 	props: ['locale'],
 	created() {
-		// <link href="https://fonts.googleapis.com/css?family=Sacramento&amp;display=swap" rel="stylesheet">
 		let sacramento = document.createElement('link')
 		sacramento.setAttribute("href", "https://fonts.googleapis.com/css?family=Sacramento&amp;display=swap")
 		sacramento.setAttribute("rel", "stylesheet")
@@ -281,9 +279,10 @@ export default {
 }
 
 img.mariage {
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 25px;
+	margin-bottom: 30px;
 	width: 50%;
+	box-shadow: 0 0 10px #555;
 }
 
 #mariage-validate-success,
@@ -294,6 +293,14 @@ img.mariage {
 #mariage-validate-success .content,
 #mariage-validate-error .content {
 	margin-left: 0 !important;
+}
+
+a.button {
+	transition: transform .3s !important;
+}
+
+a.button:hover {
+	transform: scale(.95);
 }
 
 @media (max-width: 768px) {
