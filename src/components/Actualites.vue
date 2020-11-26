@@ -3,8 +3,8 @@
 		<h1 class="ui header blue">
 			<i class="icon newspaper outline"></i>
 			<div class="content">
-				Mes actualités
-				<div class="sub header">Ici, je partage toutes mes actualités.</div>
+				{{ this.locale === 'fr' ? "Mes actualités" : "News" }}
+				<div class="sub header">{{ this.locale === 'fr' ? "Ici, je partage toutes mes actualités." : "Here, read all my little news." }}</div>
 			</div>
 		</h1>
 		<div class="ui basic segment center aligned">
@@ -79,9 +79,9 @@ export default {
 	methods: {
 		displayTitle: function () {
 			if (this.locale === "fr") {
-				document.title = `Accueil | ${this.$parent.$data.title}`
+				document.title = `Actualités | ${this.$parent.$data.title}`
 			} else {
-				document.title = `Home | ${this.$parent.$data.title}`
+				document.title = `News | ${this.$parent.$data.title}`
 			}
 		},
 		getNews: function () {

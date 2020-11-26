@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<h1>{{ $t('Resume.Projects.Title') }}</h1>
 		<div class="ui basic segment center aligned">
 			<button class="ui small button" @click="displayAll()">
 				{{ this.locale === 'fr' ? "Tout afficher" : "Display all" }}
@@ -84,9 +85,9 @@ export default {
 	methods: {
 		displayTitle: function () {
 			if (this.locale === "fr") {
-				document.title = `Compétences | ${this.$parent.$data.title}`
+				document.title = `Projets et réalisations | ${this.$parent.$data.title}`
 			} else {
-				document.title = `Skills | ${this.$parent.$data.title}`
+				document.title = `Projects and realizations | ${this.$parent.$data.title}`
 			}
 		},
 		getProjects: function () {

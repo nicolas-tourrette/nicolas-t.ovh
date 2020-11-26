@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>Ma formation</h1>
+		<h1>{{ $t('Resume.Education.Title') }}</h1>
 		<div id="timeline-content">
 			<ul class="timeline">
 				<li class="event" v-for="formation in education" :key="formation.index" :data-date="formation.dateBegin + ' - ' + formation.dateEnd">

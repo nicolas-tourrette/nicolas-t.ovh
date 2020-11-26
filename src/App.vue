@@ -40,9 +40,6 @@ export default {
 	created: function () {
 		this.getSoftInfo()
 	},
-	mounted: function () {
-		//document.title = this.title
-	},
 	methods: {
 		changeLocale(payload) {
 			let locale = payload.locale
@@ -51,7 +48,6 @@ export default {
 			this.$refs.sidebar.updateLocale(locale)
 		},
 		getSoftInfo: function () {
-			console.log("getting soft info")
 			$.ajax({
 				url: `./assets/software.json`,
 				type: 'GET',
@@ -61,7 +57,6 @@ export default {
 					this.lastUpdated = response.versions[0].date
 					this.versions = response.versions
 					this.lastContentUpdate = response.lastContentUpdate
-					console.log(this.versions)
 				},
 				error: (response, status, error) => {
 					this.news = []
@@ -70,7 +65,6 @@ export default {
 			})
 		}
 	},
-	//watch: {}
 }
 </script>
 

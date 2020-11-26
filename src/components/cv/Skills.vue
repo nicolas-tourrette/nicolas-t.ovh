@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>Mes compétences</h1>
+		<h1>{{ $t('Resume.Skills.Title') }}</h1>
 		<div class="ui teal progress" v-for="skill in skills" :key="skill.index">
 			<div class="bar" :style="{width:  skill.percentage + '%'}">
 				<div class="progress">{{skill.percentage}}%</div>

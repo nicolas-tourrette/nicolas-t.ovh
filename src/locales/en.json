@@ -1,33 +1,143 @@
 {
-  "Sidebar": {
-    "Accueil": "Home",
-    "Actualites": "News",
-    "Publications": "Publications",
-    "Mariage": "Marion & Nicolas' Wedding",
-    "CV": "Resume"
-  },
-  "Footer": {
-    "APropos": {
-      "Titre": "About",
-      "Liens": {
-        "Accueil": "Home",
-        "Actualites": "My news",
-        "Publications": "My publications",
-        "CV": "My Resume"
-      }
-    },
-    "Liens": {
-      "Titre": "Useful links",
-      "Liens": {
-        "Statuts": "Service status",
-        "Informations": "Information"
-      }
-    },
-    "LastUpdate": "Last updated on",
-    "FooterText": "This website has been developed with the VueJS technology and the Semantic UI CSS library. The whole contents is property of its author. For any specific wish, feel free to contact me on the appropriate page."
-  },
-  "Home": {
-    "Home_Welcome1": "Welcome on my brand new Website ! It has been updated on {date}. Developed with the {vue-link} framework, it is more lisible and simple. The design has been created with the {semantic-link} CSS library.",
-    "Home_Welcome2": "The website is not yet totally bilingual, but I am still working hard on it! It tooks so much time to translate all its contents. A small {actualite} will be published when it will be completely translated to english 😉. For the moment, only some components are available, and also my {cv}."
-  }
+	"Sidebar": {
+		"Accueil": "Home",
+		"Actualites": "News",
+		"Publications": "Publications",
+		"Mariage": "Marion & Nicolas' Wedding",
+		"CV": "Resume"
+	},
+	"Footer": {
+		"APropos": {
+			"Titre": "About",
+			"Liens": {
+				"Accueil": "Home",
+				"Actualites": "My news",
+				"Publications": "My publications",
+				"CV": "My Resume"
+			}
+		},
+		"Liens": {
+			"Titre": "Useful links",
+			"Liens": {
+				"Statuts": "Service status",
+				"Informations": "Information"
+			}
+		},
+		"LastUpdate": "Last updated on",
+		"FooterText": "This website has been developed with the VueJS technology and the Semantic UI CSS library. The whole contents is property of its author. For any specific wish, feel free to contact me on the appropriate page."
+	},
+	"Home": {
+		"Page": {
+			"Welcome": {
+				"Title": "Welcome on my Website!",
+				"Content1": "Welcome on my brand new Website ! It has been updated on {contentUpdate} (software : {softUpdate}). Developed with the {vue-link} framework, it is more lisible and simple. The design has been created with the {semantic-link} CSS library.",
+				"Content2": "The website is not yet totally bilingual, but I am still working hard on it! It tooks so much time to translate all its contents. A small {actualite} will be published when it will be completely translated to english 😉. For the moment, only some components are available, and also my {cv}."
+			},
+			"OtherSpaces": {
+				"Title": "My other spaces",
+				"Content": {
+					"APGMB": {
+						"Website": {
+							"Title": "APGMB's website",
+							"Link": "Go on the website",
+							"Date": "Brought into service during August 2019",
+							"Text": "WordPress website realized to meet the digital development of the Burgundy Mustard seeds Producers Association."
+						},
+						"GEM": {
+							"Title": "GEM software | APGMB",
+							"Link": "Launch the software",
+							"Date": "Brought into service during août 2019",
+							"Text": "Web software coded to manage the mustard agriculture yearly plan for the <i>Burgundy Mustard</i> industry."
+						}
+					},
+					"ESIREM": {
+						"Title": "ESIREM Past papers platform",
+						"Link": "Visit the platform",
+						"Date": "Brought into service during septembre 2016",
+						"Text": "I developed a web platform to facilitate the access to the past papers at ESIREM and to share those available. This makes it easier to work exams and communicate useful documents to students."
+					},
+					"LearnApp": {
+						"Title": "LearnApp platform",
+						"Link": "Visit the platform",
+						"Date": "Development in progress",
+						"Text": "This web platform (in development) is based on my Python GeoBrevet software. It will be extended to various other applets, GeoBrevet will be one of them."
+					},
+					"Books": {
+						"Title": "My books",
+						"Link": "Visit my website",
+						"Date": "Since 2017",
+						"Text": "My author website shows you all my books and writings."
+					}
+				}
+			}
+		}
+	},
+	"Resume": {
+		"Page": {
+			"Title": "My Resume",
+			"Subtitle": "Consult here my online Resume."
+		},
+		"Menu": {
+			"Home": "Home",
+			"Education": "Education",
+			"Experiences": "Professional experiences",
+			"Skills": "Skills",
+			"Interests": "Interests",
+			"Projects": "Projects and realizations",
+			"Downloads": {
+				"Title": "Downloads",
+				"ResumePDF": "PDF Resume",
+				"ResumePrint": "Resume to print",
+				"CourseFilePDF": "PDF Course file (FR)",
+				"CourseFilePrint": "Course file to print (FR)"
+			}
+		},
+		"Home": {
+			"Title": "Hello, I am Nicolas TOURRETTE !",
+			"ContactMe": "Contact me",
+			"PersonalInfo": "Personal information",
+			"Biography": "Biography",
+			"Strengths": "Strengths"
+		},
+		"Education": {
+			"Title": "Education"
+		},
+		"Experiences": {
+			"Title": "Professional experiences"
+		},
+		"Skills": {
+			"Title": "Skills"
+		},
+		"Interests": {
+			"Title": "Interests"
+		},
+		"Projects": {
+			"Title": "Projects and realizations"
+		}
+	},
+	"Information": {
+		"Page": {
+			"Title": "Information",
+			"Subtitle": "Information about the www.nicolas-t.ovh website.",
+			"UpdateText": "Contents updated on:",
+			"Availability": {
+				"Title": "Service availability",
+				"Texts": {
+					"Explanation": "This service is 24h/24 available, except during interruptions due to the User connexion or the Provider connexion. <strong>This service is always rebooted every Sunday at 11:59 PM</strong>. The service will be unavailable during the short period due to the server reboot.",
+					"Uptime": "This service is <span class=\"ui green label\">UP</span> since"
+				}
+			},
+			"Monitoring": {
+				"Title": "Services monitoring",
+				"Text": "On <a href=\"https://status.nicolas-t.ovh\" target=\"_blank\">https://status.nicolas-t.ovh</a>, you can have access to the monitoring service of my server."
+			},
+			"Asking": {
+				"Title": "Ask a question",
+				"Text": "Concerning every question or request about this service, please feel free to contact my webmaster at <a href=\"mailto:postmaster@nicolas-t.ovh\">this e-mail address</a>. You will get an answer as quick as possible."
+			},
+			"VersionsHistory": {
+				"Title": "Versions history"
+			}
+		}
+	}
 }

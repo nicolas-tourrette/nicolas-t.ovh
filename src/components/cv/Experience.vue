@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>Mes expériences professionnelles</h1>
+		<h1>{{ $t('Resume.Experiences.Title') }}</h1>
 		<div id="timeline-content">
 			<ul class="timeline">
 				<li class="event" v-for="experience in experiences" :key="experience.index" :data-date="`${dateRangeDisplay(experience.dateBegin,

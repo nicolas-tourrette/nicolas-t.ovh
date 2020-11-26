@@ -3,10 +3,10 @@
 		<h1 class="ui header blue">
 			<img class="ui image" src="../assets/img/wedding.svg">
 			<div class="content">
-				<span>Mariage de Marion & Nicolas</span>
+				<span>{{ this.locale === 'fr' ? "Mariage de Marion & Nicolas" : "Marion & Nicolas' Wedding" }}</span>
 				<div class="sub header">
-					Toutes les informations sur notre mariage.<br>
-					<small>Mis à jour : 16 juillet 2020.</small>
+					{{ this.locale === 'fr' ? "Toutes les informations sur notre mariage." : "All the information about our wedding." }}<br>
+					<small>{{ this.locale === 'fr' ? "Mis à jour : 16 juillet 2020." : "Last updated: July 16, 2020." }}</small>
 				</div>
 			</div>
 		</h1>
@@ -20,30 +20,39 @@
 					<div class="ui teal header text-center">Date</div>
 				</div>
 				<div class="content">
-					<p>Notre mariage aura lieu le</p>
-					<h3 class="ui text-center teal header">samedi 7 août 2021</h3>
-					<p>Nous vous attendons pour nous entourer durant cette belle journée !</p>
-					<p>Afin de nous aider à l'organisation, cette page sera régulièrement mise à jour, n'hésitez pas à la consulter fréquemment.</p>
+					<p>{{ this.locale === 'fr' ? "Notre mariage aura lieu le" : "Our wedding is planned on the" }}</p>
+					<h3 class="ui text-center teal header">{{ this.locale === 'fr' ? "samedi 7 août 2021" : "Saturday, August 7th 2021" }}</h3>
+					<p>{{ this.locale === 'fr'
+						? "Nous vous attendons pour nous entourer durant cette belle journée !"
+						: "We are waiting for you all to surround us for the beautifulest day of our lives!"
+					}}</p>
+					<p>{{ this.locale === 'fr'
+						? "Afin de nous aider à l'organisation, cette page sera régulièrement mise à jour, n'hésitez pas à la consulter fréquemment."
+						: "To help us, this page will be regularly updated, so please feel free to review it frequently."
+					}}</p>
 				</div>
 			</div>
 			<div class="ui centered raised teal card">
 				<div class="content">
-					<div class="ui teal header text-center">Lieux</div>
+					<div class="ui teal header text-center">{{ this.locale === 'fr' ? "Lieux" : "Places" }}</div>
 				</div>
 				<div class="content">
 					<p class="text-center">
-						<i class="icofont-2x icofont-jewlery"></i><span class="hidden">15H &mdash;</span> Mairie, 71260 LUGNY
+						<i class="icofont-2x icofont-jewlery"></i><span class="hidden">15H &mdash;</span> {{ this.locale === 'fr' ? "Mairie" :
+						"City hall" }}, 71260 LUGNY
 					</p>
 					<p class="text-center">
-						<i class="icofont-2x icofont-jewlery"></i><span class="hidden">16H30 &mdash;</span> Église, 71118 SAINT-MARTIN-BELLE-ROCHE
+						<i class="icofont-2x icofont-jewlery"></i><span class="hidden">16H30 &mdash;</span> {{ this.locale === 'fr' ? "Église" :
+						"Church" }},
+						71118 SAINT-MARTIN-BELLE-ROCHE
 					</p>
 					<hr>
 					<p class="text-center">
 						<i class="icofont-2x icofont-cocktail"></i><span class="hidden">19H &mdash;</span> Carmel, 71118 SAINT-MARTIN-BELLE-ROCHE
 					</p>
 					<p class="text-center">
-						<i class="icofont-2x icofont-dining-table"></i><span class="hidden">20H30 &mdash;</span> Salle des fêtes, 71000
-						SAINT-JEAN-LE-PRICHE
+						<i class="icofont-2x icofont-dining-table"></i><span class="hidden">20H30 &mdash;</span> {{ this.locale === 'fr' ? `Salle
+						des fêtes` : "Village hall" }}, 71000 SAINT-JEAN-LE-PRICHE
 					</p>
 				</div>
 			</div>
@@ -111,7 +120,10 @@
 		<h2>Autres renseignements</h2>
 		<p class="text-justify">Nous serons très heureux de vous avoir à nos côtés pour ce grand événement ! Cette page sera mise à jour dès que nous
 			aurons des choses à vous dire sur notre mariage !</p>
-		<p>Si vous souhaitez nous écrire, vous pouvez envoyer un e-mail en cliquant ici :</p>
+		<p>{{ this.locale === 'fr'
+			? "Si vous souhaitez nous écrire, vous pouvez envoyer un e - mail en cliquant ici :"
+			: "If you want to write us an email, please click on that button:"
+		}}</p>
 		<div class="text-center"><a id="send-mariage-mail" class="ui yellow button"><i class="icofont-2x icofont-send-mail"></i></a></div>
 	</div>
 </template>
@@ -121,10 +133,12 @@ export default {
 	name: "Mariage.vue",
 	props: ['locale'],
 	created() {
-		let sacramento = document.createElement('link')
-		sacramento.setAttribute("href", "https://fonts.googleapis.com/css?family=Sacramento&amp;display=swap")
-		sacramento.setAttribute("rel", "stylesheet")
-		document.head.appendChild(sacramento)
+		if(document.querySelectorAll("link[href='https://fonts.googleapis.com/css?family=Sacramento&amp;display=swap']").length === 0){
+			let sacramento = document.createElement('link')
+			sacramento.setAttribute("href", "https://fonts.googleapis.com/css?family=Sacramento&amp;display=swap")
+			sacramento.setAttribute("rel", "stylesheet")
+			document.head.appendChild(sacramento)
+		}
 	},
 	mounted: function () {
 		this.displayTitle()

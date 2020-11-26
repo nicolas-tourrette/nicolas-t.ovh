@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>Bonjour, je suis Nicolas TOURRETTE !</h1>
+		<h1>{{ $t('Resume.Home.Title') }}</h1>
 		<h4>{{ infos.description }}</h4>
 		<div class="ui icon message" :class="infos.professional.status">
 			<i class="icon" :class="infos.professional.icon"></i>
@@ -14,7 +14,7 @@
 		<div class="ui two cards">
 			<div class="card">
 				<div class="content">
-					<div class="header">Me contacter</div>
+					<div class="header">{{ $t('Resume.Home.ContactMe') }}</div>
 					<div class="description">
 						<div class="row">
 							<div><i class="icon home"></i></div>
@@ -37,7 +37,7 @@
 			</div>
 			<div class="card">
 				<div class="content">
-					<div class="header">Mes informations personnelles</div>
+					<div class="header">{{ $t('Resume.Home.PersonalInfo') }}</div>
 					<div class="description">
 						<div class="row">
 							<div><i class="icon heart"></i></div>
@@ -55,9 +55,9 @@
 				</div>
 			</div>
 		</div>
-		<h3>Ma biographie</h3>
+		<h3>{{ $t('Resume.Home.Biography') }}</h3>
 		<p v-for="paragraphe in infos.biography" :key="paragraphe.key" v-html="paragraphe"></p>
-		<h3>Mes points forts</h3>
+		<h3>{{ $t('Resume.Home.Strengths') }}</h3>
 		<span class="ui orange label" v-for="strength in infos.strengths" :key="strength.key">{{ strength }}</span>
 	</div>
 </template>

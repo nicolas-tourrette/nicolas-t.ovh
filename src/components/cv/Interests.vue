@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>Mes centres d'intérêts</h1>
+		<h1>{{ $t('Resume.Interests.Title') }}</h1>
 		<div class="ui equal width grid">
 			<div class="column" v-for="interest in interests" :key="interest.key">
 				<div class="ui fluid card">

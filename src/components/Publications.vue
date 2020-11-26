@@ -3,8 +3,11 @@
 		<h1 class="ui header blue">
 			<i class="icon newspaper outline"></i>
 			<div class="content">
-				Mes publications
-				<div class="sub header">Ici, je partage toutes mes publications académiques, personnelles ou professionnelles.</div>
+				{{ this.locale === 'fr' ? "Mes" : "My" }} publications
+				<div class="sub header">{{ this.locale === 'fr'
+					? "Ici, je partage toutes mes publications académiques, personnelles ou professionnelles."
+					: "Here, I am sharing you all my academic, personal or professional publications."
+				}}</div>
 			</div>
 		</h1>
 		<div v-if="$route.params.pid !== undefined" style="height: calc(100% - 50px);">

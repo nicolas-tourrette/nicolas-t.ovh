@@ -3,35 +3,25 @@
 		<h1 class="ui header blue">
 			<i class="icon icofont-info-circle"></i>
 			<div class="content">
-				Informations
+				{{ $t('Information.Page.Title') }}
 				<div class="sub header">
-					Informations sur le site www.nicolas-t.ovh.<br>
-					<small>Mise à jour du contenu : {{ this.$parent.$data.lastContentUpdate | date(this.locale) }}.</small>
+					{{ $t('Information.Page.Subtitle') }}<br>
+					<small>{{ $t('Information.Page.UpdateText') }} {{ this.$parent.$data.lastContentUpdate | date(this.locale) }}.</small>
 				</div>
 			</div>
 		</h1>
 		<div class="ui stackable grid">
 			<div class="eight wide column">
-				<h3>Disponibilité du service</h3>
-				<p>
-					Le service est disponible 24h/24 sauf interruption dûe à la connexion de l'Utilisateur ou du prestataire de service. <strong>Le
-					service est redémarré chaque dimanche à 23h59</strong>. Le service ne sera pas accessible durant la courte durée de ce
-					redémarrage.
-				</p>
-				<p>Le service est <span class="ui green label">UP</span> depuis {{ uptime }}.</p>
-				<h3>Monitoring des services</h3>
-				<p>
-					Le monitoring des services est disponible sur <a href="https://status.nicolas-t.ovh" target="_blank">https://status.nicolas-t
-					.ovh</a>.
-				</p>
-				<h3>Demandes</h3>
-				<p>
-					Pour toute demande concernant le service, vous pouvez contacter <a href="mailto:postmaster@nicolas-t.ovh">cette adresse</a>. La
-					réponse sera faite dans les plus brefs délais.
-				</p>
+				<h3>{{ $t('Information.Page.Availability.Title') }}</h3>
+				<p v-html="$t('Information.Page.Availability.Texts.Explanation')"></p>
+				<p><span v-html="$t('Information.Page.Availability.Texts.Uptime')"></span> {{ uptime }}.</p>
+				<h3>{{ $t('Information.Page.Monitoring.Title') }}</h3>
+				<p v-html="$t('Information.Page.Monitoring.Text')"></p>
+				<h3>{{ $t('Information.Page.Asking.Title') }}</h3>
+				<p v-html="$t('Information.Page.Asking.Text')"></p>
 			</div>
 			<div class="eight wide column">
-				<h3>Historique des versions</h3>
+				<h3>{{ $t('Information.Page.VersionsHistory.Title') }}</h3>
 				<div class="ui raised fluid card" v-for="version in this.$parent.$data.versions" :key="version.index">
 					<div class="content">
 						<div class="header">

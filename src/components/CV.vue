@@ -3,25 +3,28 @@
 		<h1 class="ui header blue">
 			<i class="icon icofont-businessman"></i>
 			<div class="content">
-				Mon CV
-				<div class="sub header">Consultez ici mon CV en ligne.</div>
+				{{ $t('Resume.Page.Title') }}
+				<div class="sub header">{{ $t('Resume.Page.Subtitle') }}</div>
 			</div>
 		</h1>
 		<div class="ui top attached tabular menu">
-			<router-link :to="{ 'name': 'cv-intro'}" class="item">Accueil</router-link>
-			<router-link :to="{ 'name': 'cv-education'}" class="item">Formation</router-link>
-			<router-link :to="{ 'name': 'cv-experience'}" class="item">Expériences</router-link>
-			<router-link :to="{ 'name': 'cv-skills'}" class="item">Compétences</router-link>
-			<router-link :to="{ 'name': 'cv-interests'}" class="item">Centres d'intérêt</router-link>
-			<router-link :to="{ 'name': 'cv-projects'}" class="item">Projets et réalisations</router-link>
+			<router-link :to="{ 'name': 'cv-intro'}" class="item">{{ $t('Resume.Menu.Home') }}</router-link>
+			<router-link :to="{ 'name': 'cv-education'}" class="item">{{ $t('Resume.Menu.Education') }}</router-link>
+			<router-link :to="{ 'name': 'cv-experience'}" class="item">{{ $t('Resume.Menu.Experiences') }}</router-link>
+			<router-link :to="{ 'name': 'cv-skills'}" class="item">{{ $t('Resume.Menu.Skills') }}</router-link>
+			<router-link :to="{ 'name': 'cv-interests'}" class="item">{{ $t('Resume.Menu.Interests') }}</router-link>
+			<router-link :to="{ 'name': 'cv-projects'}" class="item">{{ $t('Resume.Menu.Projects') }}</router-link>
 			<div class="ui menu right">
 				<div class="ui simple dropdown item">
-					Téléchargements <i class="dropdown icon"></i>
+					{{ $t('Resume.Menu.Downloads.Title') }} <i class="dropdown icon"></i>
 					<div class="menu">
-						<a class="item" :href="'./assets/' + this.locale + '/cv/CV_Nicolas_TOURRETTE.pdf'" target="_blank">CV en PDF</a>
-						<a class="item" :href="'./assets/' + this.locale + '/cv/CV_Nicolas_TOURRETTE_print.pdf'" target="_blank">CV à imprimer</a>
-						<a class="item" :href="'./assets/fr/cv/Fiche_filiere.pdf'" target="_blank">Fiche filière en PDF</a>
-						<a class="item" :href="'./assets/fr/cv/Fiche_filiere_NB.pdf'" target="_blank">Fiche filière à imprimer</a>
+						<a class="item" :href="'./assets/' + this.locale + '/cv/CV_Nicolas_TOURRETTE.pdf'" target="_blank">{{
+								$t('Resume.Menu.Downloads.ResumePDF') }}</a>
+						<a class="item" :href="'./assets/' + this.locale + '/cv/CV_Nicolas_TOURRETTE_print.pdf'" target="_blank">{{
+								$t('Resume.Menu.Downloads.ResumePrint') }}</a>
+						<a class="item" :href="'./assets/fr/cv/Fiche_filiere.pdf'" target="_blank">{{ $t('Resume.Menu.Downloads.CourseFilePDF') }}</a>
+						<a class="item" :href="'./assets/fr/cv/Fiche_filiere_NB.pdf'" target="_blank">{{ $t('Resume.Menu.Downloads.CourseFilePrint')
+							}}</a>
 					</div>
 				</div>
 			</div>
