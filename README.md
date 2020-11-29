@@ -4,7 +4,7 @@ This project is my website, coded with VueJS and PHP. The following commands are
 
 The precedent repo containing the old version of my site was entitled `homepage` but was private.
 
-![Deploy www.nicolas-t.ovh via SSH](https://github.com/nicolas-tourrette/nicolas-t.ovh/)
+![Deploy www.nicolas-t.ovh via SSH](https://github.com/nicolas-tourrette/nicolas-t.ovh/workflows/Deploy%20www.nicolas-t.ovh%20via%20SSH/badge.svg)
 
 ## Project setup
 ```
