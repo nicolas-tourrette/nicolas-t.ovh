@@ -24,7 +24,7 @@
 				<div class="content">
 					<a class="header">{{ project.title }}</a>
 					<div class="meta">
-						<div class="ui label red" v-if="project.category === 'intership'">{{ locale === 'fr' ? "Stage" : "Internship"}}</div>
+						<div class="ui label red" v-if="project.category === 'internship'">{{ locale === 'fr' ? "Stage" : "Internship"}}</div>
 						<div class="ui label purple" v-if="project.category === 'perso'">{{ locale === 'fr' ? "Personnel" : "Personal"}}</div>
 						<div class="ui label blue" v-if="project.category === 'esirem'">ESIREM</div>
 						<span>
@@ -44,7 +44,7 @@
 					</div>
 					<div class="extra">
 						<a class="ui primary button" :href="project.link">
-							<i class="icofont-link"></i> Voir le détail du projet
+							<i class="icofont-link"></i> {{ $t("Resume.Projects.Button") }}
 						</a>
 					</div>
 				</div>

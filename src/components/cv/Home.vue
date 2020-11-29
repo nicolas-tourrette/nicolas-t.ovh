@@ -30,7 +30,7 @@
 						</div>
 						<div class="row">
 							<div><i class="icon linkedin"></i></div>
-							<div><a :href="infos.contact.linkedin">Mon profil LinkedIn</a></div>
+							<div><a :href="infos.contact.linkedin">{{ $t("Resume.Home.LinkedInProfileTitle") }}</a></div>
 						</div>
 					</div>
 				</div>

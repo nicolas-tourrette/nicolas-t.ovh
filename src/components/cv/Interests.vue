@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1>{{ $t('Resume.Interests.Title') }}</h1>
-		<div class="ui equal width grid">
+		<div class="ui three column stackable grid">
 			<div class="column" v-for="interest in interests" :key="interest.key">
 				<div class="ui fluid card">
 					<div class="content">
@@ -65,5 +65,31 @@ export default {
 <style scoped>
 .ui.equal.grid {
 	margin-bottom: 5px;
+}
+
+i[class*="icofont-"] {
+	display: block;
+	font-size: 300%;
+	margin-bottom: 10px;
+}
+
+.card {
+	transition: all .3s linear;
+}
+
+.card:hover {
+	transform: scale(1.02);
+	border: inherit;
+	box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.08);
+}
+
+.card:hover i[class*="icofont-"]:before{
+	background: linear-gradient(to right, #1a4692 0%, #62bdfc 70%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.card .content .header {
+	font-variant: small-caps;
 }
 </style>

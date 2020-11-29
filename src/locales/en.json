@@ -4,7 +4,8 @@
 		"Actualites": "News",
 		"Publications": "Publications",
 		"Mariage": "Marion & Nicolas' Wedding",
-		"CV": "Resume"
+		"CV": "Resume",
+		"Informations": "Information"
 	},
 	"Footer": {
 		"APropos": {
@@ -94,6 +95,7 @@
 		},
 		"Home": {
 			"Title": "Hello, I am Nicolas TOURRETTE !",
+			"LinkedInProfileTitle": "My LinkedIn profile",
 			"ContactMe": "Contact me",
 			"PersonalInfo": "Personal information",
 			"Biography": "Biography",
@@ -112,7 +114,8 @@
 			"Title": "Interests"
 		},
 		"Projects": {
-			"Title": "Projects and realizations"
+			"Title": "Projects and realizations",
+			"Button": "See project details"
 		}
 	},
 	"Information": {

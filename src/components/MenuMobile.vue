@@ -11,6 +11,7 @@
 				<router-link :to="{ name: 'publications'}" class="item">{{ $t("Sidebar.Publications") }}</router-link>
 				<router-link :to="{ name: 'mariage'}" class="item">{{ $t("Sidebar.Mariage") }}</router-link>
 				<router-link :to="{ name: 'cv'}" class="item">{{ $t("Sidebar.CV") }}</router-link>
+				<router-link :to="{ name: 'infos'}" class="item">{{ $t("Sidebar.Informations") }}</router-link>
 				<a class="item" href="mailto:contact@nicolas-t.ovh">Contact</a>
 				<div class="ui dropdown item"><i class="icon flag"></i> {{ this.locale === 'fr' ? "Langue" : "Language" }}
 					<i class="dropdown icon"></i>
