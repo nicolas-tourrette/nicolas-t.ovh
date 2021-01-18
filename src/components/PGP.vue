@@ -54,7 +54,7 @@ export default {
                 {
                     email: "nicolas_tourrette@etu.u-bourgogne.fr",
                     id: "E2D854EDE791A6A8",
-                    checkSum: "4A0EB4CF5DD58ADC2E2AC373FF40EBD1E60C615F128A559FE65BE614EFA94BAD",
+                    checkSum: "D058D0BAEE1AAC5B191B9E9E2C5995305EC76C07DF21FEC09A295D98F405D6C2",
                     expiration: "2022-01-18"
                 }
             ]
