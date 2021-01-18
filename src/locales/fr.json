@@ -1,146 +1,175 @@
 {
-	"Sidebar": {
-		"Accueil": "Accueil",
-		"Actualites": "Actualités",
-		"Publications": "Publications",
-		"Mariage": "Mariage de Marion & Nicolas",
-		"CV": "Curriculum Vitae",
-		"Informations": "Informations"
-	},
-	"Footer": {
-		"APropos": {
-			"Titre": "À propos",
-			"Liens": {
-				"Accueil": "Accueil",
-				"Actualites": "Mes actualités",
-				"Publications": "Mes publications",
-				"CV": "Mon CV"
-			}
-		},
-		"Liens": {
-			"Titre": "Liens utiles",
-			"Liens": {
-				"Statuts": "Statut des services",
-				"Informations": "Informations"
-			}
-		},
-		"LastUpdate": "Date de dernière mise à jour",
-		"FooterText": "Ce site est créé avec la technologie VueJS et Semantic UI. Son contenu est la propriété de son auteur. Pour toutes demandes, merci de mon contacter en utilisant la page prévue à cet effet."
-	},
-	"Home": {
-		"Page": {
-			"Welcome": {
-				"Title": "Bienvenue sur mon site Internet !",
-				"Content1": "Bienvenue sur mon nouveau site internet ! Il a été mis à jour pour la dernière fois le {contentUpdate} (logiciel : {softUpdate}). Codé avec le framework {vue-link}, il est plus lisible et plus simple. Le design est réalisé avec la bibliothèque CSS {semantic-link}.",
-				"Content2": "Le site n'est pas encore bilingue, mais j'y travaille beaucoup. Cela demande du temps de traduire son contenu. Une petite {actualite} sera publiée quand il sera complètement disponible en anglais 😉. Pour le moment, seuls quelques composants sont traduits, ainsi que mon {cv}."
-			},
-			"OtherSpaces": {
-				"Title": "Mes autres espaces",
-				"Content": {
-					"APGMB": {
-						"Website": {
-							"Title": "Site web de l'APGMB",
-							"Link": "Visiter le site",
-							"Date": "Mis en service en août 2019",
-							"Text": "Site internet WordPress réalisé dans le cadre du développement numérique de l'Association des Producteurs de Graines de Moutarde en Bourgogne."
-						},
-						"GEM": {
-							"Title": "Logiciel GEM | APGMB",
-							"Link": "Voir le logiciel",
-							"Date": "Mis en service en août 2019",
-							"Text": "Logiciel Web développé pour gérer le plan annuel de culture de la moutarde pour la filière <i>Moutarde de Bourgogne</i>."
-						}
-					},
-					"ESIREM": {
-						"Title": "Plateforme d'annales pour l'ESIREM",
-						"Link": "Visiter la plateforme",
-						"Date": "Mis en service en septembre 2016",
-						"Text": "J'ai développé une plateforme web permettant d'avoir accès aux annales des cours/TD et CC/CT de l'ESIREM et de partager celles à disposition. Cela facilite les révisions et la communication de documents utiles aux étudiants."
-					},
-					"LearnApp": {
-						"Title": "Plateforme LearnApp",
-						"Link": "Visiter la plateforme",
-						"Date": "En cours de développement",
-						"Text": "Cette plateforme web (en développement) est basée sur mon logiciel Python GéoBrevet. Elle sera étendue à différentes autres applets, GéoBrevet étant l'une d'entre elles."
-					},
-					"Books": {
-						"Title": "Mes livres",
-						"Link": "Visiter mon site",
-						"Date": "Depuis 2017",
-						"Text": "Mon site d'auteur vous présente tous mes ouvrages et écrits."
-					}
-				}
-			}
-		}
-	},
-	"Resume": {
-		"Page": {
-			"Title": "Mon CV",
-			"Subtitle": "Consultez ici mon CV en ligne."
-		},
-		"Menu" : {
-			"Home": "Accueil",
-			"Education": "Formation",
-			"Experiences": "Experiences",
-			"Skills": "Compétences",
-			"Interests": "Centres d'intérêt",
-			"Projects": "Projets et réalisations",
-			"Downloads": {
-				"Title": "Téléchargements",
-				"ResumePDF": "CV en PDF",
-				"ResumePrint": "CV à imprimer",
-				"CourseFilePDF": "Fiche filière en PDF",
-				"CourseFilePrint": "Fiche filière à imprimer"
-			}
-		},
-		"Home": {
-			"Title": "Bonjour, je suis Nicolas TOURRETTE !",
-			"LinkedInProfileTitle": "Mon profil LinkedIn",
-			"ContactMe": "Me contacter",
-			"PersonalInfo": "Mes informations personnelles",
-			"Biography": "Ma biographie",
-			"Strengths": "Mes points forts"
-		},
-		"Education": {
-			"Title": "Ma formation"
-		},
-		"Experiences": {
-			"Title": "Mes expériences professionnelles"
-		},
-		"Skills": {
-			"Title": "Mes compétences"
-		},
-		"Interests": {
-			"Title": "Mes centres d'intérêt"
-		},
-		"Projects": {
-			"Title": "Mes projets et réalisations",
-			"Button": "Voir le détail du projet"
-		}
-	},
-	"Information": {
-		"Page": {
-			"Title": "Informations",
-			"Subtitle": "Informations sur le site www.nicolas-t.ovh.",
-			"UpdateText": "Mise à jour du contenu :",
-			"Availability": {
-				"Title": "Disponibilité du service",
-				"Texts": {
-					"Explanation": "Le service est disponible 24h/24 sauf interruption dûe à la connexion de l'Utilisateur ou du prestataire de service. <strong>Le service est redémarré chaque dimanche à 23h59</strong>. Le service ne sera pas accessible durant la courte durée de ce redémarrage.",
-					"Uptime": "Le service est <span class=\"ui green label\">UP</span> depuis"
-				}
-			},
-			"Monitoring": {
-				"Title": "Monitoring des services",
-				"Text": "Le monitoring des services est disponible sur <a href=\"https://status.nicolas-t.ovh\" target=\"_blank\">https://status.nicolas-t.ovh</a>"
-			},
-			"Asking": {
-				"Title": "Demandes",
-				"Text": "Pour toute demande concernant le service, vous pouvez contacter <a href=\"mailto:postmaster@nicolas-t.ovh\">cette adresse</a>. La réponse sera faite dans les plus brefs délais."
-			},
-			"VersionsHistory": {
-				"Title": "Historique des versions"
-			}
-		}
-	}
+    "Sidebar": {
+        "Accueil": "Accueil",
+        "Actualites": "Actualités",
+        "Publications": "Publications",
+        "Mariage": "Mariage de Marion & Nicolas",
+        "CV": "Curriculum Vitae",
+        "Informations": "Informations"
+    },
+    "Footer": {
+        "APropos": {
+            "Titre": "À propos",
+            "Liens": {
+                "Accueil": "Accueil",
+                "Actualites": "Mes actualités",
+                "Publications": "Mes publications",
+                "CV": "Mon CV"
+            }
+        },
+        "Liens": {
+            "Titre": "Liens utiles",
+            "Liens": {
+                "Statuts": "Statut des services",
+                "Informations": "Informations"
+            }
+        },
+        "LastUpdate": "Date de dernière mise à jour",
+        "FooterText": "Ce site est créé avec la technologie VueJS et Semantic UI. Son contenu est la propriété de son auteur. Pour toutes demandes, merci de mon contacter en utilisant la page prévue à cet effet."
+    },
+    "PGP": {
+        "Title": "Informations OpenPGP",
+        "Validity": {
+            "True": "CLÉ VALIDE",
+            "False": "CLÉ RÉVOQUÉE"
+        },
+        "InformationText": "Voici les informations permettant de récupérer ma clé publique OpenPGP pour mon adresse e-mail {email}. Vous trouverez toutes les informations sur cette clé ainsi que le lien vers le serveur de clés d'OpenPGP afin de pouvoir la récupérer directement depuis le gestionnaire de clés de Thunderbird par exemple.",
+        "Details": {
+            "Title": "Informations sur la clé",
+            "KeyID": "Identifiant de la clé",
+            "Checksum": "Checksum SHA-256",
+            "ExpirationDate": "Date d'expiration"
+        },
+        "Links": {
+            "Download": "Télécharger ma clé publique",
+            "ViewOPGPServer": "Voir sur le serveur de clés OpenPGP"
+        },
+        "Buttons": {
+            "Finish": "J'ai terminé"
+        }
+    },
+    "Home": {
+        "Page": {
+            "Welcome": {
+                "Title": "Bienvenue sur mon site Internet !",
+                "Content1": "Bienvenue sur mon nouveau site internet ! Il a été mis à jour pour la dernière fois le {contentUpdate} (logiciel : {softUpdate}). Codé avec le framework {vue-link}, il est plus lisible et plus simple. Le design est réalisé avec la bibliothèque CSS {semantic-link}.",
+                "Content2": "Le site n'est pas encore bilingue, mais j'y travaille beaucoup. Cela demande du temps de traduire son contenu. Une petite {actualite} sera publiée quand il sera complètement disponible en anglais 😉. Pour le moment, seuls quelques composants sont traduits, ainsi que mon {cv}."
+            },
+            "SecureCom": {
+                "Title": "Communiquer de façon sécurisée",
+                "Content": "Pour communiquer de façon sécurisée, j'utilise les systèmes de cryptographie à clé publique. Je signe régulièrement mes messages importants afin que mon destinataire puisse vérifier l'authenticité du message. Ainsi, si vous utilisez un client de messagerie, vous pouvez vérifier la signature électronique du message avec ma clé publique. Vous retrouverez toutes les informations à ce sujet sur la page des {infos}."
+            },
+            "OtherSpaces": {
+                "Title": "Mes autres espaces",
+                "Content": {
+                    "APGMB": {
+                        "Website": {
+                            "Title": "Site web de l'APGMB",
+                            "Link": "Visiter le site",
+                            "Date": "Mis en service en août 2019",
+                            "Text": "Site internet WordPress réalisé dans le cadre du développement numérique de l'Association des Producteurs de Graines de Moutarde en Bourgogne."
+                        },
+                        "GEM": {
+                            "Title": "Logiciel GEM | APGMB",
+                            "Link": "Voir le logiciel",
+                            "Date": "Mis en service en août 2019",
+                            "Text": "Logiciel Web développé pour gérer le plan annuel de culture de la moutarde pour la filière <i>Moutarde de Bourgogne</i>."
+                        }
+                    },
+                    "ESIREM": {
+                        "Title": "Plateforme d'annales pour l'ESIREM",
+                        "Link": "Visiter la plateforme",
+                        "Date": "Mis en service en septembre 2016",
+                        "Text": "J'ai développé une plateforme web permettant d'avoir accès aux annales des cours/TD et CC/CT de l'ESIREM et de partager celles à disposition. Cela facilite les révisions et la communication de documents utiles aux étudiants."
+                    },
+                    "LearnApp": {
+                        "Title": "Plateforme LearnApp",
+                        "Link": "Visiter la plateforme",
+                        "Date": "En cours de développement",
+                        "Text": "Cette plateforme web (en développement) est basée sur mon logiciel Python GéoBrevet. Elle sera étendue à différentes autres applets, GéoBrevet étant l'une d'entre elles."
+                    },
+                    "Books": {
+                        "Title": "Mes livres",
+                        "Link": "Visiter mon site",
+                        "Date": "Depuis 2017",
+                        "Text": "Mon site d'auteur vous présente tous mes ouvrages et écrits."
+                    }
+                }
+            }
+        }
+    },
+    "Resume": {
+        "Page": {
+            "Title": "Mon CV",
+            "Subtitle": "Consultez ici mon CV en ligne."
+        },
+        "Menu": {
+            "Home": "Accueil",
+            "Education": "Formation",
+            "Experiences": "Experiences",
+            "Skills": "Compétences",
+            "Interests": "Centres d'intérêt",
+            "Projects": "Projets et réalisations",
+            "Downloads": {
+                "Title": "Téléchargements",
+                "ResumePDF": "CV en PDF",
+                "ResumePrint": "CV à imprimer",
+                "CourseFilePDF": "Fiche filière en PDF",
+                "CourseFilePrint": "Fiche filière à imprimer"
+            }
+        },
+        "Home": {
+            "Title": "Bonjour, je suis Nicolas TOURRETTE !",
+            "LinkedInProfileTitle": "Mon profil LinkedIn",
+            "ContactMe": "Me contacter",
+            "PersonalInfo": "Mes informations personnelles",
+            "Biography": "Ma biographie",
+            "Strengths": "Mes points forts"
+        },
+        "Education": {
+            "Title": "Ma formation"
+        },
+        "Experiences": {
+            "Title": "Mes expériences professionnelles"
+        },
+        "Skills": {
+            "Title": "Mes compétences"
+        },
+        "Interests": {
+            "Title": "Mes centres d'intérêt"
+        },
+        "Projects": {
+            "Title": "Mes projets et réalisations",
+            "Button": "Voir le détail du projet"
+        }
+    },
+    "Information": {
+        "Page": {
+            "Title": "Informations",
+            "Subtitle": "Informations sur le site www.nicolas-t.ovh.",
+            "UpdateText": "Mise à jour du contenu :",
+            "Availability": {
+                "Title": "Disponibilité du service",
+                "Texts": {
+                    "Explanation": "Le service est disponible 24h/24 sauf interruption dûe à la connexion de l'Utilisateur ou du prestataire de service. <strong>Le service est redémarré chaque dimanche à 23h59</strong>. Le service ne sera pas accessible durant la courte durée de ce redémarrage.",
+                    "Uptime": "Le service est <span class=\"ui green label\">UP</span> depuis"
+                }
+            },
+            "Monitoring": {
+                "Title": "Monitoring des services",
+                "Text": "Le monitoring des services est disponible sur <a href=\"https://status.nicolas-t.ovh\" target=\"_blank\">https://status.nicolas-t.ovh</a>"
+            },
+            "Asking": {
+                "Title": "Demandes",
+                "Text": "Pour toute demande concernant le service, vous pouvez contacter <a href=\"mailto:postmaster@nicolas-t.ovh\">cette adresse</a>. La réponse sera faite dans les plus brefs délais."
+            },
+            "SecureCom": {
+				"Title": "Communications sécurisées",
+				"Text": "Si vous souhaitez communiquer de façon sécurisée avec moi, j'utilise OpenPGP sur certaines de mes adresses de courriel importantes. Je signe régulièrement les messages avec ce système. Vous retrouverez accolé à chaque e-mail les informations OpenPGP correspondantes en cliquant sur le petit cadenas vert. Cela ouvrira une petite pop-up qui vous donnera ma clé publique, son digest et le lien vers le serveur de clés d'OpenPGP. J'utilise celui-ci pour distribuer ma clé publique afin qu'elle soit accessible directement dans le gestionnaire de clés de Thunderbird."
+            },
+            "VersionsHistory": {
+                "Title": "Historique des versions"
+            }
+        }
+    }
 }

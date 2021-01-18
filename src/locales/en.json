@@ -27,12 +27,37 @@
 		"LastUpdate": "Last updated on",
 		"FooterText": "This website has been developed with the VueJS technology and the Semantic UI CSS library. The whole contents is property of its author. For any specific wish, feel free to contact me on the appropriate page."
 	},
+	"PGP": {
+		"Title": "OpenPGP notice",
+		"Validity": {
+			"True": "VALID KEY",
+			"False": "REVOKED KEY"
+		},
+		"InformationText": "Here is the information to retrieve my OpenPGP public key for my {email} email address. You will find all the information on this key as well as the link to the OpenPGP keys server in order to be able to retrieve it directly from the Thunderbird key manager for example.",
+		"Details": {
+			"Title": "Key information",
+			"KeyID": "Key ID",
+			"Checksum": "SHA-256 checksum",
+			"ExpirationDate": "Expiration date"
+		},
+		"Links": {
+			"Download": "Download my public key",
+			"ViewOPGPServer": "View on OpenPGP keys server"
+		},
+		"Buttons": {
+			"Finish": "I'm done"
+		}
+	},
 	"Home": {
 		"Page": {
 			"Welcome": {
 				"Title": "Welcome on my Website!",
 				"Content1": "Welcome on my brand new Website ! It has been updated on {contentUpdate} (software : {softUpdate}). Developed with the {vue-link} framework, it is more lisible and simple. The design has been created with the {semantic-link} CSS library.",
 				"Content2": "The website is not yet totally bilingual, but I am still working hard on it! It tooks so much time to translate all its contents. A small {actualite} will be published when it will be completely translated to english 😉. For the moment, only some components are available, and also my {cv}."
+			},
+			"SecureCom": {
+				"Title": "A secure way to talk",
+				"Content": "To have secure communications, I am using public key cryptography. I regularly sign my important messages to assure the recipient that my email is authentic. So, if you use an email client, you can verify that the electronic signature of the email you received from me is valid with my public key. You can have access to all the information about that on the {infos} page."
 			},
 			"OtherSpaces": {
 				"Title": "My other spaces",
@@ -137,6 +162,10 @@
 			"Asking": {
 				"Title": "Ask a question",
 				"Text": "Concerning every question or request about this service, please feel free to contact my webmaster at <a href=\"mailto:postmaster@nicolas-t.ovh\">this e-mail address</a>. You will get an answer as quick as possible."
+			},
+			"SecureCom": {
+				"Title": "Secured communications",
+				"Text": "If you want to communicate securely with me, I use OpenPGP on some of my important email addresses. I regularly sign messages with this system. You will find the corresponding OpenPGP information attached to each email address by clicking on the small green padlock. This will open a small pop-up that will give you my public key, its digest, and the link to OpenPGP keys server. I am using this one to distribute my public key so that it can be accessed directly in the Thunderbird key manager."
 			},
 			"VersionsHistory": {
 				"Title": "Versions history"

@@ -26,7 +26,7 @@
 						</div>
 						<div class="row">
 							<div><i class="icon envelope"></i></div>
-							<div><a :href="'mailto:' + infos.contact.mail">{{ infos.contact.mail }}</a></div>
+							<div><a :href="'mailto:' + infos.contact.mail">{{ infos.contact.mail }}</a> <i class="large icon green icofont-lock" @click="displayPGPInfos"></i> </div>
 						</div>
 						<div class="row">
 							<div><i class="icon linkedin"></i></div>
@@ -59,15 +59,19 @@
 		<p v-for="paragraphe in infos.biography" :key="paragraphe.key" v-html="paragraphe"></p>
 		<h3>{{ $t('Resume.Home.Strengths') }}</h3>
 		<span class="ui orange label" v-for="strength in infos.strengths" :key="strength.key">{{ strength }}</span>
+
+        <PGP :locale="locale" :email="infos.contact.mail"></PGP>
 	</div>
 </template>
 
 <script>
 import moment from 'moment'
+import PGP from "../PGP";
 
 export default {
 	name: "CVHome",
-	props: ["locale"],
+    components: {PGP},
+    props: ["locale"],
 	data: function () {
 		return {
 			infos: {
@@ -123,7 +127,10 @@ export default {
 					throw new Error("Error when fetching the information: ", error)
 				}
 			})
-		}
+		},
+        displayPGPInfos: function () {
+            $('#pgp_key.ui.basic.modal').modal('setting', 'closable', false).modal('show')
+        }
 	},
 	filters: {
 		date: function (date, locale) {

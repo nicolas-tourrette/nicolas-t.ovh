@@ -19,6 +19,8 @@
 				<p v-html="$t('Information.Page.Monitoring.Text')"></p>
 				<h3>{{ $t('Information.Page.Asking.Title') }}</h3>
 				<p v-html="$t('Information.Page.Asking.Text')"></p>
+                <h3>{{ $t('Information.Page.SecureCom.Title') }}</h3>
+				<p v-html="$t('Information.Page.SecureCom.Text')"></p>
 			</div>
 			<div class="eight wide column">
 				<h3>{{ $t('Information.Page.VersionsHistory.Title') }}</h3>

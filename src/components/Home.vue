@@ -36,6 +36,12 @@
 				</strong>
 			</template>
 		</i18n>
+        <h2>{{ $t('Home.Page.SecureCom.Title') }}</h2>
+        <i18n path="Home.Page.SecureCom.Content" tag="p">
+            <template v-slot:infos>
+                <router-link :to="{name: 'infos'}">{{ locale === 'fr' ? "informations" : "information" }}</router-link>
+            </template>
+        </i18n>
 		<h2>{{ $t('Home.Page.OtherSpaces.Title') }}</h2>
 		<div class="ui three column grid stackable">
 			<div class="column">
