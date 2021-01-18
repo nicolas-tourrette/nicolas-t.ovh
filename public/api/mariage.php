@@ -30,76 +30,126 @@ try {
 	throw new Exception($e->getMessage(), $e->getCode());
 }
 
-if (isset($_POST['data'])) {
-	$data = json_decode($_POST['data'], true);
-	
-	$query = 'INSERT INTO REPONSE_PRESENT (NOM, TELEPHONE, EMAIL, NB_PRESENTS, PRESENT_MAIRIE, PRESENT_EGLISE, PRESENT_REPAS) VALUES
+switch ($_POST["action"]) {
+	case "present":
+		reponsePresent($bdd, $config, $_POST['data']);
+		break;
+	case "getgifts":
+		getGifts($bdd);
+		break;
+	case "reservegift":
+		reserveGift($bdd, $_POST["data"]);
+		break;
+	default:
+		header("HTTP/1.0 400 Error: Not correct");
+		throw new Exception("Not correct", "400");
+}
+
+function reponsePresent($dataBase, $configManager, $postedData)
+{
+	if (isset($postedData)) {
+		$data = json_decode($postedData, true);
+		
+		$query = 'INSERT INTO REPONSE_PRESENT (NOM, TELEPHONE, EMAIL, NB_PRESENTS, PRESENT_MAIRIE, PRESENT_EGLISE, PRESENT_REPAS) VALUES
              ("' . $data["nom"] . '", "' . $data["telephone"] . '", "' . $data["email"] . '", ' . $data["nombre"] . ', ' . (int)$data["presence"]["mairie"] . ',
              ' . (int)$data["presence"]["eglise"] . ', ' . (int)$data["presence"]["repas"] . ');';
-	
-	if (!$bdd->query($query)) {
-		// En cas d'erreur, on affiche un message et on arrête tout
-		header("HTTP/1.0 400 Error " . $bdd->errorInfo()[1] . ": " . $bdd->errorInfo()[2]);
-		throw new Exception($bdd->errorInfo()[2], $bdd->errorInfo()[1]);
-	} else {
-		// Load Composer's autoloader
-		// require 'vendor/autoload.php';
 		
-		// Instantiation and passing `true` enables exceptions
-		$mail = new PHPMailer(true);
-		
-		try {
-			//Server settings
-			//$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
-			$mail->setLanguage('fr', __DIR__ . '/../lib/phpmailer/language/phpmailer.lang-fr.php');
-			$mail->isSMTP();                                            // Send using SMTP
-			$mail->Host = $config->getMailerConfig()["server"];                         // Set the SMTP server to send through
-			$mail->SMTPAuth = true;                                   // Enable SMTP authentication
-			$mail->Username = $config->getMailerConfig()["username"];             // SMTP username
-			$mail->Password = $config->getMailerConfig()["password"];                          // SMTP password
-			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-			$mail->Port = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-			$mail->CharSet = 'UTF-8';                                // Uses UTF-8 encoding format for the mail
+		if (!$dataBase->query($query)) {
+			// En cas d'erreur, on affiche un message et on arrête tout
+			header("HTTP/1.0 400 Error " . $dataBase->errorInfo()[1] . ": " . $dataBase->errorInfo()[2]);
+			throw new Exception($dataBase->errorInfo()[2], $dataBase->errorInfo()[1]);
+		} else {
+			// Load Composer's autoloader
+			// require 'vendor/autoload.php';
 			
-			//Recipients
-			$mail->setFrom($config->getMailerConfig()["from"]["address"], $config->getMailerConfig()["from"]["name"]);
-			$mail->addAddress($data["email"], $data["nom"]);     // Add a recipient
-			$mail->addReplyTo($config->getMailerConfig()["from"]["address"], $config->getMailerConfig()["from"]["name"]);
-			//$mail->addCC('cc@example.com');
-			//$mail->addBCC('bcc@example.com');
+			// Instantiation and passing `true` enables exceptions
+			$mail = new PHPMailer(true);
 			
-			// Attachments
-			//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-			//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-			
-			// Content
-			$mail->isHTML(true);                                  // Set email format to HTML
-			$mail->Subject = "Test mariage";
-			
-			// Présent à la mairie et/ou à l'église mais pas au repas
-			if (($data["presence"]["mairie"] || $data["presence"]["eglise"]) && !$data["presence"]["repas"]) {
-				ob_start();
-				require __DIR__ . '/../assets/mariage/mail-ceremonies.php';
-				$mail->Body = ob_get_contents();
-				ob_end_clean();
-			} // Présent à la mairie et/ou à l'église ET au repas
-			elseif (($data["presence"]["mairie"] || $data["presence"]["eglise"]) && $data["presence"]["repas"]) {
-				ob_start();
-				require __DIR__ . '/../assets/mariage/mail-repas.php';
-				$mail->Body = ob_get_contents();
-				ob_end_clean();
-			} else {
-				header("HTTP/1.0 409 Error: Wrong conditions");
-				throw new Exception("Wrong conditions", "409");
+			try {
+				//Server settings
+				//$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+				$mail->setLanguage('fr', __DIR__ . '/../lib/phpmailer/language/phpmailer.lang-fr.php');
+				$mail->isSMTP();                                            // Send using SMTP
+				$mail->Host = $configManager->getMailerConfig()["server"];                         // Set the SMTP server to send through
+				$mail->SMTPAuth = true;                                   // Enable SMTP authentication
+				$mail->Username = $configManager->getMailerConfig()["username"];             // SMTP username
+				$mail->Password = $configManager->getMailerConfig()["password"];                          // SMTP password
+				$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+				$mail->Port = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+				$mail->CharSet = 'UTF-8';                                // Uses UTF-8 encoding format for the mail
+				
+				//Recipients
+				$mail->setFrom($configManager->getMailerConfig()["from"]["address"], $configManager->getMailerConfig()["from"]["name"]);
+				$mail->addAddress($data["email"], $data["nom"]);     // Add a recipient
+				$mail->addReplyTo($configManager->getMailerConfig()["from"]["address"], $configManager->getMailerConfig()["from"]["name"]);
+				//$mail->addCC('cc@example.com');
+				//$mail->addBCC('bcc@example.com');
+				
+				// Attachments
+				//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+				//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+				
+				// Content
+				$mail->isHTML(true);                                  // Set email format to HTML
+				$mail->Subject = "Test mariage";
+				
+				// Présent à la mairie et/ou à l'église mais pas au repas
+				if (($data["presence"]["mairie"] || $data["presence"]["eglise"]) && !$data["presence"]["repas"]) {
+					ob_start();
+					require __DIR__ . '/../assets/mariage/mail-ceremonies.php';
+					$mail->Body = ob_get_contents();
+					ob_end_clean();
+				} // Présent à la mairie et/ou à l'église ET au repas
+				elseif (($data["presence"]["mairie"] || $data["presence"]["eglise"]) && $data["presence"]["repas"]) {
+					ob_start();
+					require __DIR__ . '/../assets/mariage/mail-repas.php';
+					$mail->Body = ob_get_contents();
+					ob_end_clean();
+				} else {
+					header("HTTP/1.0 409 Error: Wrong conditions");
+					throw new Exception("Wrong conditions", "409");
+				}
+				
+				$mail->send();
+			} catch (Exception $e) {
+				header("HTTP/1.0 " . $e->getCode() . " Error: " . $e->getMessage());
+				throw $e;
 			}
-			
-			$mail->send();
-		} catch (Exception $e) {
-			header("HTTP/1.0 " . $e->getCode() . " Error: " . $e->getMessage());
-			throw $e;
 		}
+	} else {
+		header("HTTP/1.0 400 Error: Not correct");
+		throw new Exception("Not correct", "400");
 	}
-} else {
-	header("HTTP/1.0 400 Error: Not correct");
-	throw new Exception("Not correct", "400");
+}
+
+function getGifts($dataBase)
+{
+	header('Content-Type: application/json');
+	$query = "SELECT * from liste_mariage WHERE reserve IS FALSE ORDER BY ID ASC;";
+	
+	$results = [];
+	
+	foreach ($dataBase->query($query, PDO::FETCH_ASSOC) as $result){
+		$results[] = $result;
+	}
+	
+	echo json_encode($results);
+}
+
+function reserveGift($dataBase, $postedData)
+{
+	if (isset($postedData)) {
+		$data = json_decode($postedData, true);
+		
+		$query = "UPDATE liste_mariage SET reserve=true WHERE id = {$data['id']};";
+		
+		if (!$dataBase->query($query)) {
+			// En cas d'erreur, on affiche un message et on arrête tout
+			header("HTTP/1.0 400 Error " . $dataBase->errorInfo()[1] . ": " . $dataBase->errorInfo()[2]);
+			throw new Exception($dataBase->errorInfo()[2], $dataBase->errorInfo()[1]);
+		}
+	} else {
+		header("HTTP/1.0 400 Error: Not correct");
+		throw new Exception("Not correct", "400");
+	}
 }
