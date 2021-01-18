@@ -124,7 +124,7 @@
         </form>
         <!--		</div>-->
         <h2>Vous souhaitez participer à notre liste de mariage ?</h2>
-        <p>Vous trouverez ci-dessous notre liste de mariage. Pour nous aider, il suffit simplement de dire quel cadeau vous souhaitez nous offrir. Les autres ne le verront plus et cela évitera d'offrir plusieurs fois la même chose :). Il n'y a qu'à cocher la case et le cadeau sera marqué comme offert. Merci d'avance pour votre don !</p>
+        <p>Vous trouverez ci-dessous notre liste de mariage. Pour nous aider, il suffit simplement de dire quel cadeau vous souhaitez nous offrir. Les autres ne le verront plus et cela évitera d'offrir plusieurs fois la même chose 😊. Il n'y a qu'à cocher la case et le cadeau sera marqué comme offert. Merci d'avance pour votre don !</p>
         <div class="ui raised centered cards">
             <div class="card" v-if="cadeaux.length === 0">
                 <div class="content">
