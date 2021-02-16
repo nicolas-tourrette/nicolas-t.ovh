@@ -26,7 +26,7 @@
 						</div>
 						<div class="row">
 							<div><i class="icon envelope"></i></div>
-							<div><a :href="'mailto:' + infos.contact.mail">{{ infos.contact.mail }}</a> <i class="large icon green icofont-lock" @click="displayPGPInfos" style="cursor: pointer"></i> </div>
+							<div><a :href="'mailto:' + infos.contact.mail">{{ infos.contact.mail }}</a> <i class="large icon green icofont-key" @click="displayPGPInfos" style="cursor: pointer"></i> </div>
 						</div>
 						<div class="row">
 							<div><i class="icon linkedin"></i></div>

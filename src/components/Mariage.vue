@@ -6,7 +6,7 @@
                 <span>{{ this.locale === 'fr' ? "Mariage de Marion & Nicolas" : "Marion & Nicolas' Wedding" }}</span>
                 <div class="sub header">
                     {{ this.locale === 'fr' ? "Toutes les informations sur notre mariage." : "All the information about our wedding." }}<br>
-                    <small>{{ this.locale === 'fr' ? "Mis à jour : 16 juillet 2020." : "Last updated: July 16, 2020." }}</small>
+                    <small>{{ this.locale === 'fr' ? "Mis à jour : 8 février 2021." : "Last updated: February 8, 2021." }}</small>
                 </div>
             </div>
         </h1>
@@ -44,34 +44,30 @@
                 </div>
                 <div class="content">
                     <p class="text-center">
-                        <i class="icofont-2x icofont-jewlery"></i><span class="hidden">15H &mdash;</span> {{
-                            this.locale === 'fr' ? "Mairie" :
-                                "City hall"
-                        }}, 71260 LUGNY
+                        <i class="icofont-2x icofont-jewlery"></i>15H &mdash; {{ this.locale === 'fr' ? "Mairie" : "City hall" }}, 71260 LUGNY
                     </p>
                     <p class="text-center">
-                        <i class="icofont-2x icofont-jewlery"></i><span class="hidden">16H30 &mdash;</span> {{ this.locale === 'fr' ? "Église" : "Church" }}, 71118 SAINT-MARTIN-BELLE-ROCHE
+                        <i class="icofont-2x icofont-jewlery"></i>16H30 &mdash; {{ this.locale === 'fr' ? "Église" : "Church" }}, 71118 SAINT-MARTIN-BELLE-ROCHE
                     </p>
                     <hr>
                     <p class="text-center">
-                        <i class="icofont-2x icofont-cocktail"></i><span class="hidden">19H &mdash;</span> Carmel, 71118 SAINT-MARTIN-BELLE-ROCHE
+                        <i class="icofont-2x icofont-cocktail"></i>18H30 &mdash; Carmel, 71118 SAINT-MARTIN-BELLE-ROCHE
                     </p>
                     <p class="text-center">
-                        <i class="icofont-2x icofont-dining-table"></i><span class="hidden">20H30 &mdash;</span>
-                        {{ this.locale === 'fr' ? `Salle des fêtes` : "Village hall" }}, 71000 SAINT-JEAN-LE-PRICHE
+                        <i class="icofont-2x icofont-dining-table"></i>20H30 &mdash; {{ this.locale === 'fr' ? `Salle des fêtes` : "Village hall" }}, 71000 SAINT-JEAN-LE-PRICHE
                     </p>
                 </div>
             </div>
         </div>
-        <!--		<div class="hidden">-->
+
         <h2>Vous êtes invités ?</h2>
         <h4><i>Dites-nous si vous serez présents !</i></h4>
         <p>
             Afin de nous aider dans l'organisation de ce grand événement, dites-nous si vous serez présent !<br>
             <i>Les futurs mariés</i>
         </p>
-        <div class="ui green icon message" id="mariage-validate-success"></div>
-        <div class="ui red icon message" id="mariage-validate-error"></div>
+        <div class="ui green icon message hidden" id="mariage-validate-success"></div>
+        <div class="ui red icon message hidden" id="mariage-validate-error"></div>
         <form class="ui form">
             <h4 class="ui dividing header">Informations générales</h4>
             <div class="fields">
@@ -122,7 +118,7 @@
             <p>Nous collectons vos données personnelles afin de pouvoir organiser au mieux notre mariage. Ces données seront exclusivement
                 réservées à notre usage propre et ne seront communiquées à aucun tiers.</p>
         </form>
-        <!--		</div>-->
+
         <h2>Vous souhaitez participer à notre liste de mariage ?</h2>
         <p>Vous trouverez ci-dessous notre liste de mariage. Pour nous aider, il suffit simplement de dire quel cadeau vous souhaitez nous offrir. Les autres ne le verront plus et cela évitera d'offrir plusieurs fois la même chose 😊. Il n'y a qu'à cocher la case et le cadeau sera marqué comme offert. Merci d'avance pour votre don !</p>
         <div class="ui raised centered cards">
@@ -136,9 +132,40 @@
             <div class="card" v-for="cadeau in cadeaux" :key="cadeau.id">
                 <div class="content">
                     <div class="header">{{ cadeau.nom }}</div>
-                    <div class="meta">Valeur : {{ cadeau.prix }} €</div>
+                    <div class="meta">Valeur : {{ cadeau.prix }} €<br>Participations engagées : {{ cadeau.montantParticipation }} €</div>
+                    <div class="description" v-html="cadeau.description"></div>
                 </div>
-                <div class="ui bottom attached button primary" @click="reserveGift(cadeau.id)"><i class="check icon"></i> Je m'engage pour ce cadeau
+                <div class="extra content">
+                    <div class="ui two buttons">
+                        <div class="ui button primary" @click="reserveGift(cadeau.id)">
+                            <i class="check icon"></i> Je m'engage pour ce cadeau
+                        </div>
+                        <div class="ui button" @click="participateToGift(cadeau.id)">
+                            <i class="icofont-bricks"></i> Je veux participer à une partie de ce cadeau
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ui modal" id="mariage-gift-thanks">
+                <i class="close icon"></i>
+                <div class="header">
+                    Merci !
+                </div>
+                <div class="image content">
+                    <div class="ui medium image">
+                        <img src="http://lacabananico.free.fr/srv/fiancailles/img/P1210725.jpg">
+                    </div>
+                    <div class="description">
+                        <div class="ui header">Merci pour ce cadeau !</div>
+                        <p v-if="action === 'offer'">Merci de nous offrir le cadeau "{{ this.reservedGift.nom }}" d'une valeur de {{ this.reservedGift.prix }} € ! Vous seul savez que vous offrez ce cadeau et il ne sera plus visible dans notre liste de mariage.</p>
+                        <p v-if="action === 'participate'">Merci d'avoir participé au cadeau "{{ this.reservedGift.nom }}" d'une valeur de {{ this.reservedGift.prix }} € ! Vous avez indiquer contribuer à hauteur de {{ this.reservedGift.lastParticipation }} €.</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="ui black deny button">
+                        Fermer
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,7 +173,7 @@
         <p class="text-justify">Nous serons très heureux de vous avoir à nos côtés pour ce grand événement ! Cette page sera mise à jour dès que nous aurons des choses à vous dire sur notre mariage !</p>
         <p>{{
                 this.locale === 'fr'
-                    ? "Si vous souhaitez nous écrire, vous pouvez envoyer un e - mail en cliquant ici :"
+                    ? "Si vous souhaitez nous écrire, vous pouvez envoyer un e-mail en cliquant ici :"
                     : "If you want to write us an email, please click on that button:"
             }}</p>
         <div class="text-center"><a id="send-mariage-mail" class="ui yellow button"><i class="icofont-2x icofont-send-mail"></i></a></div>
@@ -161,6 +188,8 @@ export default {
     props: ['locale'],
     data: function () {
         return {
+            action: "",
+            reservedGift: new Cadeau(),
             cadeaux: []
         }
     },
@@ -219,12 +248,47 @@ export default {
                         type: "POST",
                         data: `action=reservegift&data=${JSON.stringify({id: cadeau.id})}`,
                         success: () => {
+                            this.action = "offer"
+                            this.reservedGift = cadeau
+                            $('#mariage-gift-thanks').modal('show')
                             this.cadeaux.splice(index, 1)
                         },
                         error: () => {
                             console.error("Error when reserving gift with ID " + cadeau.id)
                         }
                     })
+                }
+            })
+        },
+        participateToGift: function (id) {
+            this.cadeaux.forEach((cadeau) => {
+                if (cadeau.id === id) {
+                    let amount = window.prompt("Quel est le montant de votre participation ?")
+                    if (amount !== null) {
+                        amount = Number(amount)
+                        console.log(typeof amount)
+                        if (amount > 0) {
+                            cadeau.participate(amount)
+                            $.ajax({
+                                url: "api/mariage.php",
+                                type: "POST",
+                                data: `action=participategift&data=${JSON.stringify({id: cadeau.id, montant: cadeau.montantParticipation})}`,
+                                success: () => {
+                                    this.action = "participate"
+                                    this.reservedGift = cadeau
+                                    $('#mariage-gift-thanks').modal('show')
+                                },
+                                error: () => {
+                                    console.error("Error when participating to gift with ID " + cadeau.id + " and amount " + amount + " €")
+                                }
+                            })
+                        } else {
+                            window.alert("Your participation amount is not a strictly positive number.")
+                            console.error("Error when participating to gift with ID " + cadeau.id + " because of non-strictly positive amount: " + amount + " €")
+                        }
+                    } else {
+                        console.warn("Cancelling participation to gift " + cadeau.id)
+                    }
                 }
             })
         },
@@ -289,6 +353,7 @@ export default {
                 type: "POST",
                 data: "action=present&data=" + JSON.stringify(values),
                 success: () => {
+                    //$("#mariage-validate-error").addClass("hidden").css("display", "")
                     $("#mariage-validate-error i.close.icon").click()
                     $("#mariage-validate-success").html(`
 						<i class="close icon"></i>
@@ -299,7 +364,7 @@ export default {
 							d'informations.</p>
 							<p>Merci pour votre réponse. Si vous avez des questions, n'hésitez pas à nous joindre !</p>
 						</div>
-					`).removeClass("hidden").css("display", "flex")
+					`).removeClass("hidden")//.css("display", "flex")
                     $('.message .close')
                         .on('click', function () {
                             $(this)
@@ -308,6 +373,8 @@ export default {
                         })
                 },
                 error: (xhr, text, error) => {
+                    //$("#mariage-validate-success").addClass("hidden").css("display", "")
+                    $("#mariage-validate-success i.close.icon").click()
                     $("#mariage-validate-error").html(`
 						<i class="close icon"></i>
 						<i class="times circle outline icon"></i>
@@ -317,7 +384,7 @@ export default {
 							<h4 class="ui horizontal divider header"><i class="icofont-info-circle"></i> Informations </h4>
 							<p>Error: ${xhr.status} - ${error}</p></p>
 						</div>
-					`).removeClass("hidden").css("display", "flex")
+					`).removeClass("hidden")//.css("display", "flex")
                     $('.message .close')
                         .on('click', function () {
                             $(this)
@@ -365,8 +432,12 @@ img.mariage {
     box-shadow: 0 0 10px #555;
 }
 
-#mariage-validate-success,
-#mariage-validate-error {
+.ui.modal .content {
+    margin-left: 0;
+}
+
+#mariage-validate-success.hidden,
+#mariage-validate-error.hidden {
     display: none;
 }
 

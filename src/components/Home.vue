@@ -26,16 +26,7 @@
 			<template v-slot:vue-link><a href="https://fr.vuejs.org">VueJS</a></template>
 			<template v-slot:semantic-link><a href="https://semantic-ui.com">Semantic UI</a></template>
 		</i18n>
-		<i18n path="Home.Page.Welcome.Content2" tag="p">
-			<template v-slot:actualite>
-				<router-link :to="{name: 'news'}">{{ locale === 'fr' ? "actualité" : "news" }}</router-link>
-			</template>
-			<template v-slot:cv>
-				<strong>
-					<router-link :to="{name: 'cv'}">{{ locale === 'fr' ? "CV" : "Resume" }}</router-link>
-				</strong>
-			</template>
-		</i18n>
+		<i18n path="Home.Page.Welcome.Content2" tag="p"></i18n>
         <h2>{{ $t('Home.Page.SecureCom.Title') }}</h2>
         <i18n path="Home.Page.SecureCom.Content" tag="p">
             <template v-slot:infos>

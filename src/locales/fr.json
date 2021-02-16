@@ -53,7 +53,7 @@
             "Welcome": {
                 "Title": "Bienvenue sur mon site Internet !",
                 "Content1": "Bienvenue sur mon nouveau site internet ! Il a été mis à jour pour la dernière fois le {contentUpdate} (logiciel : {softUpdate}). Codé avec le framework {vue-link}, il est plus lisible et plus simple. Le design est réalisé avec la bibliothèque CSS {semantic-link}.",
-                "Content2": "Le site n'est pas encore bilingue, mais j'y travaille beaucoup. Cela demande du temps de traduire son contenu. Une petite {actualite} sera publiée quand il sera complètement disponible en anglais 😉. Pour le moment, seuls quelques composants sont traduits, ainsi que mon {cv}."
+                "Content2": "Le site est presque bilingue ! N'hésitez pas à m'envoyer un e-mail si vous souhaitez corriger des erreurs de traduction que j'aurai laissées 😉."
             },
             "SecureCom": {
                 "Title": "Communiquer de façon sécurisée",
@@ -165,7 +165,7 @@
             },
             "SecureCom": {
 				"Title": "Communications sécurisées",
-				"Text": "Si vous souhaitez communiquer de façon sécurisée avec moi, j'utilise OpenPGP sur certaines de mes adresses de courriel importantes. Je signe régulièrement les messages avec ce système. Vous retrouverez accolé à chaque e-mail les informations OpenPGP correspondantes en cliquant sur le petit cadenas vert. Cela ouvrira une petite pop-up qui vous donnera ma clé publique, son digest et le lien vers le serveur de clés d'OpenPGP. J'utilise celui-ci pour distribuer ma clé publique afin qu'elle soit accessible directement dans le gestionnaire de clés de Thunderbird."
+				"Text": "Si vous souhaitez communiquer de façon sécurisée avec moi, j'utilise OpenPGP sur certaines de mes adresses de courriel importantes. Je signe régulièrement les messages avec ce système. Vous retrouverez accolé à chaque e-mail les informations OpenPGP correspondantes en cliquant sur la petite clé verte. Cela ouvrira une petite pop-up qui vous donnera ma clé publique, son digest et le lien vers le serveur de clés d'OpenPGP. J'utilise celui-ci pour distribuer ma clé publique afin qu'elle soit accessible directement dans le gestionnaire de clés de Thunderbird."
             },
             "VersionsHistory": {
                 "Title": "Historique des versions"
