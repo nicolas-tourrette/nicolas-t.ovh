@@ -25,3 +25,6 @@ dist
 public/assets
 public/lib/config/dev.env.json
 public/lib/config/prod.env.json
+
+# Built files
+*.js.*

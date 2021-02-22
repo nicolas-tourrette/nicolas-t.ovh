@@ -77,7 +77,7 @@
                 </div>
                 <div class="five wide field required">
                     <label for="telephone">Votre numéro de téléphone</label>
-                    <input type="tel" name="telephone" id="telephone" placeholder="01.23.45.67.89." required>
+                    <input type="tel" name="telephone" id="telephone" placeholder="01-23-45-67-89" required>
                 </div>
                 <div class="five wide field required">
                     <label for="email">Votre e-mail</label>
@@ -314,7 +314,7 @@ export default {
                             rules: [
                                 {
                                     type: 'regExp',
-                                    value: /([0-9][0-9]\.){5}$/gmi,
+                                    value: /([0-9][0-9]-){4}([0-9][0-9])$/gmi,
                                     prompt: 'Le numéro de téléphone est incorrect.'
                                 }
                             ]
@@ -360,8 +360,7 @@ export default {
 						<i class="check circle outline icon"></i>
 						<div class="content" style="margin-left: 0;">
 							<div class="header">Félicitations, c'est fait !</div>
-							<p>Votre réponse nous est bien parvenue. Vous recevrez un e-mail à l'adresse ${values.email} pour vous donner un peu plus
-							d'informations.</p>
+							<p>Votre réponse nous est bien parvenue. Vous recevrez un e-mail à l'adresse ${values.email} pour vous donner un peu plus d'informations.</p>
 							<p>Merci pour votre réponse. Si vous avez des questions, n'hésitez pas à nous joindre !</p>
 						</div>
 					`).removeClass("hidden")//.css("display", "flex")
