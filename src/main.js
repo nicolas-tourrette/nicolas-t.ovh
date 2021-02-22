@@ -14,7 +14,7 @@ import CVSkills from "./components/cv/Skills"
 import CVInterests from "./components/cv/Interests"
 import CVProjects from "./components/cv/Projects"
 import Informations from "./components/Informations"
-import Landing from "./components/Landing"
+//import Landing from "./components/Landing"
 
 import '../public/css/style.css'
 
@@ -54,13 +54,13 @@ const router = new VueRouter({
         {
             path: '/mariage',
             name: "mariage",
-            component: Mariage //Mariage,
+            component: Mariage,
         },
-        {
+        /*{
             path: '/mariage/admin',
             name: "mariageadm",
             component: Landing,
-        },
+        },*/
         {
             path: '/cv',
             component: CV,
