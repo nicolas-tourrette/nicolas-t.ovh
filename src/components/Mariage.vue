@@ -137,7 +137,7 @@
                 </div>
                 <div class="extra content">
                     <div class="ui two buttons">
-                        <div class="ui button primary" @click="reserveGift(cadeau.id)">
+                        <div class="ui button primary" @click="reserveGift(cadeau.id)" v-if="cadeau.id != 18">
                             <i class="check icon"></i> Je m'engage pour ce cadeau
                         </div>
                         <div class="ui button" @click="participateToGift(cadeau.id)">
@@ -233,6 +233,7 @@ export default {
                     html.forEach((item) => {
                         this.cadeaux.push(new Cadeau(item))
                     })
+                    console.log(this.cadeaux)
                 },
                 error: () => {
                     console.error("Error when getting gifts.")

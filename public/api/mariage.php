@@ -133,7 +133,7 @@ function reponsePresent($dataBase, $configManager, $postedData)
 function getGifts($dataBase)
 {
     header('Content-Type: application/json');
-    $query = "SELECT * from liste_mariage WHERE reserve IS FALSE ORDER BY ID ASC;";
+    $query = "SELECT * from liste_mariage WHERE reserve IS FALSE ORDER BY cadeau asc;";
 
     $results = [];
 
