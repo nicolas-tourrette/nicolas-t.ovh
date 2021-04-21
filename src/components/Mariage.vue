@@ -76,7 +76,7 @@
                     <input type="text" name="nom" id="nom" placeholder="Jean DUPONT" required>
                 </div>
                 <div class="five wide field required">
-                    <label for="telephone">Votre numéro de téléphone</label>
+                    <label for="telephone">Votre numéro de téléphone (au format indiqué)</label>
                     <input type="tel" name="telephone" id="telephone" placeholder="01-23-45-67-89" required>
                 </div>
                 <div class="five wide field required">
@@ -120,7 +120,8 @@
         </form>
 
         <h2>Vous souhaitez participer à notre liste de mariage ?</h2>
-        <p>Vous trouverez ci-dessous notre liste de mariage. Pour nous aider, il suffit simplement de dire quel cadeau vous souhaitez nous offrir. Les autres ne le verront plus et cela évitera d'offrir plusieurs fois la même chose 😊. Il n'y a qu'à cocher la case et le cadeau sera marqué comme offert. Merci d'avance pour votre don !</p>
+        <p>Vous trouverez ci-dessous notre liste de mariage. Pour nous aider, il suffit simplement de dire quel cadeau vous souhaitez nous offrir. Les autres ne le verront plus et cela évitera d'offrir plusieurs fois la même chose 😊. Il n'y a qu'à cocher la case et le cadeau sera marqué comme offert. Merci d'avance pour votre don ! Si vous le souhaitez, vous pouvez aussi contribuer à la cagnotte et déposer le jour J le montant de votre participation à celle-ci dans une corbeille dédiée à cette effet.</p>
+        <p>NB : vous indiquez participer à un cadeau, mais nous vous laissons le soin de l'acheter.</p>
         <div class="ui raised centered cards">
             <div class="card" v-if="cadeaux.length === 0">
                 <div class="content">
